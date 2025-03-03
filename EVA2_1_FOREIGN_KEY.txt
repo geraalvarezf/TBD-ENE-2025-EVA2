@@ -1,0 +1,273 @@
+Last login: Mon Mar  3 16:20:07 on ttys000
+mysqlsh
+/Users/Gerardo/.zshrc:export:1: not valid in this context: export HOMEBREW_PREFIX
+Gerardo@luiss-mac ~ % mysqlsh
+MySQL Shell 9.2.0
+
+Copyright (c) 2016, 2025, Oracle and/or its affiliates.
+Oracle is a registered trademark of Oracle Corporation and/or its affiliates.
+Other names may be trademarks of their respective owners.
+
+Type '\help' or '\?' for help; '\quit' to exit.
+ MySQL  SQL > \connect --mc root@localhost
+Creating a Classic session to 'root@localhost'
+Fetching global names for auto-completion... Press ^C to stop.
+Your MySQL connection id is 17
+Server version: 9.1.0 MySQL Community Server - GPL
+No default schema selected; type \use <schema> to set one.
+ MySQL  localhost  SQL > create database t2;
+Query OK, 1 row affected (0.0111 sec)
+ MySQL  localhost  SQL > drop t2;
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 't2' at line 1
+ MySQL  localhost  SQL > drop database t2;
+Query OK, 0 rows affected (0.0135 sec)
+ MySQL  localhost  SQL > drop database tbd_eva2;
+ERROR: 1008 (HY000): Can't drop database 'tbd_eva2'; database doesn't exist
+ MySQL  localhost  SQL > create database tbd_eva2;
+Query OK, 1 row affected (0.0036 sec)
+ MySQL  localhost  SQL > create table banco(
+                      -> bancoid int not null key auto_increment,
+                      -> nombre varchar(50) not null);
+ERROR: 1046 (3D000): No database selected
+ MySQL  localhost  SQL > use tbd_eva2;
+Default schema set to `tbd_eva2`.
+Fetching global names, object names from `tbd_eva2` for auto-completion... Press ^C to stop.
+ MySQL  localhost  tbd_eva2  SQL > create table banco( bancoid int not null key auto_increment, nombre varchar(50) not null);
+Query OK, 0 rows affected (0.0151 sec)
+ MySQL  localhost  tbd_eva2  SQL > show tables;
++--------------------+
+| Tables_in_tbd_eva2 |
++--------------------+
+| banco              |
++--------------------+
+1 row in set (0.0063 sec)
+ MySQL  localhost  tbd_eva2  SQL > desc banco;
++---------+-------------+------+-----+---------+----------------+
+| Field   | Type        | Null | Key | Default | Extra          |
++---------+-------------+------+-----+---------+----------------+
+| bancoid | int         | NO   | PRI | NULL    | auto_increment |
+| nombre  | varchar(50) | NO   |     | NULL    |                |
++---------+-------------+------+-----+---------+----------------+
+2 rows in set (0.0056 sec)
+ MySQL  localhost  tbd_eva2  SQL > insert into banco(nombre)
+                                -> values("City"), ("Scotiabank"), ("HSBC"), ("Santander");
+Query OK, 4 rows affected (0.0031 sec)
+
+Records: 4  Duplicates: 0  Warnings: 0
+ MySQL  localhost  tbd_eva2  SQL > select * from bancos;
+ERROR: 1146 (42S02): Table 'tbd_eva2.bancos' doesn't exist
+ MySQL  localhost  tbd_eva2  SQL > select * from banco;
++---------+------------+
+| bancoid | nombre     |
++---------+------------+
+|       1 | City       |
+|       2 | Scotiabank |
+|       3 | HSBC       |
+|       4 | Santander  |
++---------+------------+
+4 rows in set (0.0006 sec)
+ MySQL  localhost  tbd_eva2  SQL > create table tarjeta(
+                                -> tarjetaid int not null key auto_increment,
+                                -> nombre varchar(50));
+Query OK, 0 rows affected (0.0132 sec)
+ MySQL  localhost  tbd_eva2  SQL > insert into tarjeta(nombre)
+                                -> values("Mastercard"), ("Visa");
+Query OK, 2 rows affected (0.0039 sec)
+
+Records: 2  Duplicates: 0  Warnings: 0
+ MySQL  localhost  tbd_eva2  SQL > select * from tarjeta;
++-----------+------------+
+| tarjetaid | nombre     |
++-----------+------------+
+|         1 | Mastercard |
+|         2 | Visa       |
++-----------+------------+
+2 rows in set (0.0008 sec)
+ MySQL  localhost  tbd_eva2  SQL > create table cliente(
+                                -> clienteid int not null key auto:ncrement,
+                                -> nombre varchar(50) not null,
+                                -> apellidos varchar(50) not null);
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'auto:ncrement,
+nombre varchar(50) not null,
+apellidos varchar(50) not null)' at line 2
+ MySQL  localhost  tbd_eva2  SQL > create table cliente( clienteid int not null key auto_increment, nombre varchar(50) not null, apellidos varchar(50) not null);
+Query OK, 0 rows affected (0.0089 sec)
+ MySQL  localhost  tbd_eva2  SQL > insert into cliente(nombre, apellidos)
+                                -> values("Juan","Perez"),("Pedro","Páramo"),
+                                -> ("Ruben","Hernandez"),("Otro","Cliente");
+Query OK, 4 rows affected (0.0036 sec)
+
+Records: 4  Duplicates: 0  Warnings: 0
+ MySQL  localhost  tbd_eva2  SQL > select * from cliente;
++-----------+--------+-----------+
+| clienteid | nombre | apellidos |
++-----------+--------+-----------+
+|         1 | Juan   | Perez     |
+|         2 | Pedro  | Páramo    |
+|         3 | Ruben  | Hernandez |
+|         4 | Otro   | Cliente   |
++-----------+--------+-----------+
+4 rows in set (0.0008 sec)
+ MySQL  localhost  tbd_eva2  SQL > show tables;
++--------------------+
+| Tables_in_tbd_eva2 |
++--------------------+
+| banco              |
+| cliente            |
+| tarjeta            |
++--------------------+
+3 rows in set (0.0027 sec)
+ MySQL  localhost  tbd_eva2  SQL > create table tarjetaCliente(
+                                -> tarjetaclID int not null key auto_increment,
+                                -> cliente id not null,
+                                -> bancoid not null,
+                                -> tarjetaid int not null);
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'id not null,
+bancoid not null,
+tarjetaid int not null)' at line 3
+ MySQL  localhost  tbd_eva2  SQL > create table tarjetaCliente( tarjetaclID int not null key auto_increment, cliente id not null, bancoid int not null, tarjetaid int not null);
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'id not null, bancoid int not null, tarjetaid int not null)' at line 1
+ MySQL  localhost  tbd_eva2  SQL > create table tarjetaCliente(tarjetaclID int not null key auto_increment, clienteid int not null, bancoid int not null, tarjetaid int not null);
+Query OK, 0 rows affected (0.0113 sec)
+ MySQL  localhost  tbd_eva2  SQL > desc tarjetaCliente;
++-------------+------+------+-----+---------+----------------+
+| Field       | Type | Null | Key | Default | Extra          |
++-------------+------+------+-----+---------+----------------+
+| tarjetaclID | int  | NO   | PRI | NULL    | auto_increment |
+| clienteid   | int  | NO   |     | NULL    |                |
+| bancoid     | int  | NO   |     | NULL    |                |
+| tarjetaid   | int  | NO   |     | NULL    |                |
++-------------+------+------+-----+---------+----------------+
+4 rows in set (0.0036 sec)
+ MySQL  localhost  tbd_eva2  SQL > insert into tarjetaCliente(clienteid,bancoid,tarjetaid)
+                                -> values(1,1,1),(2,2,2),(4,3,2);
+Query OK, 3 rows affected (0.0031 sec)
+
+Records: 3  Duplicates: 0  Warnings: 0
+ MySQL  localhost  tbd_eva2  SQL > select * from tarjetaCliente;
++-------------+-----------+---------+-----------+
+| tarjetaclID | clienteid | bancoid | tarjetaid |
++-------------+-----------+---------+-----------+
+|           1 |         1 |       1 |         1 |
+|           2 |         2 |       2 |         2 |
+|           3 |         4 |       3 |         2 |
++-------------+-----------+---------+-----------+
+3 rows in set (0.0008 sec)
+ MySQL  localhost  tbd_eva2  SQL > insert into tarjetaCliente(clienteid,bancoid,tarjetaid) value(5,10,11);
+Query OK, 1 row affected (0.0027 sec)
+ MySQL  localhost  tbd_eva2  SQL > select * from cliente;
++-----------+--------+-----------+
+| clienteid | nombre | apellidos |
++-----------+--------+-----------+
+|         1 | Juan   | Perez     |
+|         2 | Pedro  | Páramo    |
+|         3 | Ruben  | Hernandez |
+|         4 | Otro   | Cliente   |
++-----------+--------+-----------+
+4 rows in set (0.0008 sec)
+ MySQL  localhost  tbd_eva2  SQL > select * from cliente
+                                -> where clienteid = 1;
++-----------+--------+-----------+
+| clienteid | nombre | apellidos |
++-----------+--------+-----------+
+|         1 | Juan   | Perez     |
++-----------+--------+-----------+
+1 row in set (0.0008 sec)
+ MySQL  localhost  tbd_eva2  SQL > select * from cliente where clienteid = 2;
++-----------+--------+-----------+
+| clienteid | nombre | apellidos |
++-----------+--------+-----------+
+|         2 | Pedro  | Páramo    |
++-----------+--------+-----------+
+1 row in set (0.0008 sec)
+ MySQL  localhost  tbd_eva2  SQL > select * from cliente where clienteid = 3;
++-----------+--------+-----------+
+| clienteid | nombre | apellidos |
++-----------+--------+-----------+
+|         3 | Ruben  | Hernandez |
++-----------+--------+-----------+
+1 row in set (0.0006 sec)
+ MySQL  localhost  tbd_eva2  SQL > select * from cliente;
++-----------+--------+-----------+
+| clienteid | nombre | apellidos |
++-----------+--------+-----------+
+|         1 | Juan   | Perez     |
+|         2 | Pedro  | Páramo    |
+|         3 | Ruben  | Hernandez |
+|         4 | Otro   | Cliente   |
++-----------+--------+-----------+
+4 rows in set (0.0003 sec)
+ MySQL  localhost  tbd_eva2  SQL > select * from tarjetaCliente;
++-------------+-----------+---------+-----------+
+| tarjetaclID | clienteid | bancoid | tarjetaid |
++-------------+-----------+---------+-----------+
+|           1 |         1 |       1 |         1 |
+|           2 |         2 |       2 |         2 |
+|           3 |         4 |       3 |         2 |
+|           4 |         5 |      10 |        11 |
++-------------+-----------+---------+-----------+
+4 rows in set (0.0006 sec)
+ MySQL  localhost  tbd_eva2  SQL > select * from cliente where clienteid = 5;
+Empty set (0.0007 sec)
+ MySQL  localhost  tbd_eva2  SQL > delete from tarjetaCliente where
+                                -> tarjetaclid = 4;
+Query OK, 1 row affected (0.0036 sec)
+ MySQL  localhost  tbd_eva2  SQL > select * from tarjetaCliente;
++-------------+-----------+---------+-----------+
+| tarjetaclID | clienteid | bancoid | tarjetaid |
++-------------+-----------+---------+-----------+
+|           1 |         1 |       1 |         1 |
+|           2 |         2 |       2 |         2 |
+|           3 |         4 |       3 |         2 |
++-------------+-----------+---------+-----------+
+3 rows in set (0.0008 sec)
+ MySQL  localhost  tbd_eva2  SQL > select * from tarjetaCliente; 
++-------------+-----------+---------+-----------+
+| tarjetaclID | clienteid | bancoid | tarjetaid |
++-------------+-----------+---------+-----------+
+|           1 |         1 |       1 |         1 |
+|           2 |         2 |       2 |         2 |
+|           3 |         4 |       3 |         2 |
++-------------+-----------+---------+-----------+
+3 rows in set (0.0010 sec)
+                                -> ^C
+ MySQL  localhost  tbd_eva2  SQL > delete from tarjetacliente;
+Query OK, 3 rows affected (0.0028 sec)
+ MySQL  localhost  tbd_eva2  SQL > select * from tarjetaCliente;
+Empty set (0.0007 sec)
+ MySQL  localhost  tbd_eva2  SQL > desc tarjeta cliente;
+Empty set (0.0052 sec)
+ MySQL  localhost  tbd_eva2  SQL > desc tarjetacliente;
++-------------+------+------+-----+---------+----------------+
+| Field       | Type | Null | Key | Default | Extra          |
++-------------+------+------+-----+---------+----------------+
+| tarjetaclID | int  | NO   | PRI | NULL    | auto_increment |
+| clienteid   | int  | NO   |     | NULL    |                |
+| bancoid     | int  | NO   |     | NULL    |                |
+| tarjetaid   | int  | NO   |     | NULL    |                |
++-------------+------+------+-----+---------+----------------+
+4 rows in set (0.0030 sec)
+ MySQL  localhost  tbd_eva2  SQL > drop tarjetaCliente;
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'tarjetaCliente' at line 1
+ MySQL  localhost  tbd_eva2  SQL > drop table tarjetaCliente;
+Query OK, 0 rows affected (0.0086 sec)
+ MySQL  localhost  tbd_eva2  SQL > create table tarjetaCliente(tarjetaclID int not null key auto_increment, clienteid int not null, bancoid int not null, tarjetaid int not null, foreign key (cliente id) references cliente(clienteid));
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'id) references cliente(clienteid))' at line 1
+ MySQL  localhost  tbd_eva2  SQL > create table tarjetaCliente(tarjetaclid int not null key auto_increment, clienteid int not null, bancoid int not null, tarjetaid int not null, foreign key (clienteid) references cliente(clienteid));
+Query OK, 0 rows affected (0.0156 sec)
+ MySQL  localhost  tbd_eva2  SQL > show create table tarjetaCliente;
++----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Table          | Create Table                                                                                                                                                                                                                                                                                                                                                                                        |
++----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| tarjetaCliente | CREATE TABLE `tarjetaCliente` (
+  `tarjetaclid` int NOT NULL AUTO_INCREMENT,
+  `clienteid` int NOT NULL,
+  `bancoid` int NOT NULL,
+  `tarjetaid` int NOT NULL,
+  PRIMARY KEY (`tarjetaclid`),
+  KEY `clienteid` (`clienteid`),
+  CONSTRAINT `tarjetacliente_ibfk_1` FOREIGN KEY (`clienteid`) REFERENCES `cliente` (`clienteid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci |
++----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+1 row in set (0.0037 sec)
+ MySQL  localhost  tbd_eva2  SQL > 
