@@ -1,0 +1,297 @@
+Last login: Tue Mar  4 16:13:32 on ttys005
+mysqlsh
+/Users/Gerardo/.zshrc:export:1: not valid in this context: export HOMEBREW_PREFIX
+Gerardo@luiss-mac ~ % mysqlsh
+MySQL Shell 9.2.0
+
+Copyright (c) 2016, 2025, Oracle and/or its affiliates.
+Oracle is a registered trademark of Oracle Corporation and/or its affiliates.
+Other names may be trademarks of their respective owners.
+
+Type '\help' or '\?' for help; '\quit' to exit.
+ MySQL  SQL > \connect -mc root@localhost
+WARNING: The -mc option was deprecated, please use --mc instead. (Option has been processed as --mc).
+Creating a Classic session to 'root@localhost'
+Fetching global names for auto-completion... Press ^C to stop.
+Your MySQL connection id is 18
+Server version: 9.1.0 MySQL Community Server - GPL
+No default schema selected; type \use <schema> to set one.
+ MySQL  localhost  SQL > use tbd_eva2
+Default schema set to `tbd_eva2`.
+Fetching global names, object names from `tbd_eva2` for auto-completion... Press ^C to stop.
+ MySQL  localhost  tbd_eva2  SQL > select * from tarjetacliente;
+Empty set (0.0497 sec)
+ MySQL  localhost  tbd_eva2  SQL > insert into tarjetacliente(clienteid,bancoid,tarjetaid)
+                                -> value (1,1,1)
+                                -> ;
+Query OK, 1 row affected (0.0120 sec)
+ MySQL  localhost  tbd_eva2  SQL > select * from cliente;
++-----------+--------+-----------+
+| clienteid | nombre | apellidos |
++-----------+--------+-----------+
+|         1 | Juan   | Perez     |
+|         2 | Pedro  | Páramo    |
+|         3 | Ruben  | Hernandez |
+|         4 | Otro   | Cliente   |
++-----------+--------+-----------+
+4 rows in set (0.0146 sec)
+ MySQL  localhost  tbd_eva2  SQL > select * from tarjeta;
++-----------+------------+
+| tarjetaid | nombre     |
++-----------+------------+
+|         1 | Mastercard |
+|         2 | Visa       |
++-----------+------------+
+2 rows in set (0.0015 sec)
+ MySQL  localhost  tbd_eva2  SQL > select * from tarjetacliente;
++-------------+-----------+---------+-----------+
+| tarjetaclid | clienteid | bancoid | tarjetaid |
++-------------+-----------+---------+-----------+
+|           1 |         1 |       1 |         1 |
++-------------+-----------+---------+-----------+
+1 row in set (0.0010 sec)
+ MySQL  localhost  tbd_eva2  SQL > insert into tarjetacliente(clienteid,bancoid,tarjetaid) value (2,2,2) ;
+Query OK, 1 row affected (0.0032 sec)
+ MySQL  localhost  tbd_eva2  SQL > select * from tarjetacliente;
++-------------+-----------+---------+-----------+
+| tarjetaclid | clienteid | bancoid | tarjetaid |
++-------------+-----------+---------+-----------+
+|           1 |         1 |       1 |         1 |
+|           2 |         2 |       2 |         2 |
++-------------+-----------+---------+-----------+
+2 rows in set (0.0008 sec)
+ MySQL  localhost  tbd_eva2  SQL > delete from cliente
+                                -> where clienteid=1;
+ERROR: 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`tbd_eva2`.`tarjetacliente`, CONSTRAINT `tarjetacliente_ibfk_1` FOREIGN KEY (`clienteid`) REFERENCES `cliente` (`clienteid`))
+ MySQL  localhost  tbd_eva2  SQL > alter table cliente
+                                -> add foreign key(bancoid)^C
+ MySQL  localhost  tbd_eva2  SQL > alter table tarjetacliente
+                                -> add foreign key(bancoid)
+                                -> references cliente(clienteid);
+Query OK, 2 rows affected (0.0687 sec)
+
+Records: 2  Duplicates: 0  Warnings: 0
+ MySQL  localhost  tbd_eva2  SQL > alter table tarjetacliente add foreign key(bancoid) references banco(bancoid);
+Query OK, 2 rows affected (0.0285 sec)
+
+Records: 2  Duplicates: 0  Warnings: 0
+ MySQL  localhost  tbd_eva2  SQL > show create table tarjetaCliente;
++----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Table          | Create Table                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
++----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| tarjetaCliente | CREATE TABLE `tarjetaCliente` (
+  `tarjetaclid` int NOT NULL AUTO_INCREMENT,
+  `clienteid` int NOT NULL,
+  `bancoid` int NOT NULL,
+  `tarjetaid` int NOT NULL,
+  PRIMARY KEY (`tarjetaclid`),
+  KEY `clienteid` (`clienteid`),
+  KEY `bancoid` (`bancoid`),
+  CONSTRAINT `tarjetacliente_ibfk_1` FOREIGN KEY (`clienteid`) REFERENCES `cliente` (`clienteid`),
+  CONSTRAINT `tarjetacliente_ibfk_2` FOREIGN KEY (`bancoid`) REFERENCES `cliente` (`clienteid`),
+  CONSTRAINT `tarjetacliente_ibfk_3` FOREIGN KEY (`bancoid`) REFERENCES `banco` (`bancoid`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci |
++----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+1 row in set (0.0310 sec)
+ MySQL  localhost  tbd_eva2  SQL > ALTER TABLE tarjetacliente DROP FOREIGN KEY tarjetacliente_ibfk_2;
+Query OK, 0 rows affected (0.0333 sec)
+
+Records: 0  Duplicates: 0  Warnings: 0
+ MySQL  localhost  tbd_eva2  SQL > ALTER TABLE tarjetacliente DROP FOREIGN KEY tarjetacliente_ibfk_3;
+Query OK, 0 rows affected (0.0113 sec)
+
+Records: 0  Duplicates: 0  Warnings: 0
+ MySQL  localhost  tbd_eva2  SQL > alter table tarjetacliente add foreign key(bancoid) references banco(bancoid);
+Query OK, 2 rows affected (0.0324 sec)
+
+Records: 2  Duplicates: 0  Warnings: 0
+ MySQL  localhost  tbd_eva2  SQL > show create table tarjetaCliente;
++----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Table          | Create Table                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
++----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| tarjetaCliente | CREATE TABLE `tarjetaCliente` (
+  `tarjetaclid` int NOT NULL AUTO_INCREMENT,
+  `clienteid` int NOT NULL,
+  `bancoid` int NOT NULL,
+  `tarjetaid` int NOT NULL,
+  PRIMARY KEY (`tarjetaclid`),
+  KEY `clienteid` (`clienteid`),
+  KEY `bancoid` (`bancoid`),
+  CONSTRAINT `tarjetacliente_ibfk_1` FOREIGN KEY (`clienteid`) REFERENCES `cliente` (`clienteid`),
+  CONSTRAINT `tarjetacliente_ibfk_2` FOREIGN KEY (`bancoid`) REFERENCES `banco` (`bancoid`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci |
++----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+1 row in set (0.0011 sec)
+ MySQL  localhost  tbd_eva2  SQL > select * from banco;
++---------+------------+
+| bancoid | nombre     |
++---------+------------+
+|       1 | City       |
+|       2 | Scotiabank |
+|       3 | HSBC       |
+|       4 | Santander  |
++---------+------------+
+4 rows in set (0.0090 sec)
+ MySQL  localhost  tbd_eva2  SQL > insert into tarjetacliente(clienteid,bancoid,tarjetaid) value (2,5,2);
+ERROR: 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`tbd_eva2`.`tarjetacliente`, CONSTRAINT `tarjetacliente_ibfk_2` FOREIGN KEY (`bancoid`) REFERENCES `banco` (`bancoid`))
+ MySQL  localhost  tbd_eva2  SQL > insert into tarjetacliente(clienteid,bancoid,tarjetaid) value (2,3,2);
+Query OK, 1 row affected (0.0101 sec)
+ MySQL  localhost  tbd_eva2  SQL > insert into tarjetacliente(clienteid,bancoid,tarjetaid) value (2,4,2);
+Query OK, 1 row affected (0.0032 sec)
+ MySQL  localhost  tbd_eva2  SQL > alter table tarjetacliente
+                                -> add foreign key(tarjetaid)
+                                -> references tarjeta(tarjetaid);
+Query OK, 4 rows affected (0.0877 sec)
+
+Records: 4  Duplicates: 0  Warnings: 0
+ MySQL  localhost  tbd_eva2  SQL > show create table tarjetacliente;
++----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Table          | Create Table                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
++----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| tarjetacliente | CREATE TABLE `tarjetacliente` (
+  `tarjetaclid` int NOT NULL AUTO_INCREMENT,
+  `clienteid` int NOT NULL,
+  `bancoid` int NOT NULL,
+  `tarjetaid` int NOT NULL,
+  PRIMARY KEY (`tarjetaclid`),
+  KEY `clienteid` (`clienteid`),
+  KEY `bancoid` (`bancoid`),
+  KEY `tarjetaid` (`tarjetaid`),
+  CONSTRAINT `tarjetacliente_ibfk_1` FOREIGN KEY (`clienteid`) REFERENCES `cliente` (`clienteid`),
+  CONSTRAINT `tarjetacliente_ibfk_2` FOREIGN KEY (`bancoid`) REFERENCES `banco` (`bancoid`),
+  CONSTRAINT `tarjetacliente_ibfk_3` FOREIGN KEY (`tarjetaid`) REFERENCES `tarjeta` (`tarjetaid`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci |
++----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+1 row in set (0.0026 sec)
+ MySQL  localhost  tbd_eva2  SQL > insert into tarjeta cliente(clienteid,bancoid,tarjetaid)
+                                -> value(2,4,3);
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'cliente(clienteid,bancoid,tarjetaid)
+value(2,4,3)' at line 1
+ MySQL  localhost  tbd_eva2  SQL > delete from tarjeta
+                                -> where tarjetaid = 2
+                                -> ;
+ERROR: 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`tbd_eva2`.`tarjetacliente`, CONSTRAINT `tarjetacliente_ibfk_3` FOREIGN KEY (`tarjetaid`) REFERENCES `tarjeta` (`tarjetaid`))
+ MySQL  localhost  tbd_eva2  SQL > create table direccion cliente(
+                                -> calle varchar(50),
+                                -> numero int,
+                                -> colonia varchar(50),
+                                -> cp int,
+                                -> ciudad varchar(50),
+                                -> estado varchar(50),
+                                -> país varchar(50),
+                                -> clienteid int;
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'cliente(
+calle varchar(50),
+numero int,
+colonia varchar(50),
+cp int,
+ciudad varc' at line 1
+ MySQL  localhost  tbd_eva2  SQL > create table direccioncliente(clienteid int, calle varchar(50), numero int, colonia varchar(50), cp int, ciudad varchar(50), estado varchar(50), país varchar(50);
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+ MySQL  localhost  tbd_eva2  SQL > create table direccioncliente(clienteid int not null, calle varchar(50) not null, numero int not null, colonia varchar(50) not null, cp int not null, ciudad varchar(50) not null, estado varchar(50) not null, país varchar(50) not null);
+Query OK, 0 rows affected (0.0593 sec)
+ MySQL  localhost  tbd_eva2  SQL > desc direccioncliente;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| clienteid | int         | NO   |     | NULL    |       |
+| calle     | varchar(50) | NO   |     | NULL    |       |
+| numero    | int         | NO   |     | NULL    |       |
+| colonia   | varchar(50) | NO   |     | NULL    |       |
+| cp        | int         | NO   |     | NULL    |       |
+| ciudad    | varchar(50) | NO   |     | NULL    |       |
+| estado    | varchar(50) | NO   |     | NULL    |       |
+| país      | varchar(50) | NO   |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+8 rows in set (0.0190 sec)
+ MySQL  localhost  tbd_eva2  SQL > alter table direccioncliente
+                                -> add foreign key(clienteid)
+                                -> references cliente(clienteid);
+Query OK, 0 rows affected (0.0374 sec)
+
+Records: 0  Duplicates: 0  Warnings: 0
+ MySQL  localhost  tbd_eva2  SQL > desc direccioncliente;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| clienteid | int         | NO   | MUL | NULL    |       |
+| calle     | varchar(50) | NO   |     | NULL    |       |
+| numero    | int         | NO   |     | NULL    |       |
+| colonia   | varchar(50) | NO   |     | NULL    |       |
+| cp        | int         | NO   |     | NULL    |       |
+| ciudad    | varchar(50) | NO   |     | NULL    |       |
+| estado    | varchar(50) | NO   |     | NULL    |       |
+| país      | varchar(50) | NO   |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+8 rows in set (0.0027 sec)
+ MySQL  localhost  tbd_eva2  SQL > show create table direccioncliente;
++------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Table            | Create Table                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
++------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| direccioncliente | CREATE TABLE `direccioncliente` (
+  `clienteid` int NOT NULL,
+  `calle` varchar(50) NOT NULL,
+  `numero` int NOT NULL,
+  `colonia` varchar(50) NOT NULL,
+  `cp` int NOT NULL,
+  `ciudad` varchar(50) NOT NULL,
+  `estado` varchar(50) NOT NULL,
+  `país` varchar(50) NOT NULL,
+  KEY `clienteid` (`clienteid`),
+  CONSTRAINT `direccioncliente_ibfk_1` FOREIGN KEY (`clienteid`) REFERENCES `cliente` (`clienteid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci |
++------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+1 row in set (0.0019 sec)
+ MySQL  localhost  tbd_eva2  SQL > alter table direccioncliente
+                                -> ^C
+ MySQL  localhost  tbd_eva2  SQL > drop table direccioncliente;
+Query OK, 0 rows affected (0.0526 sec)
+ MySQL  localhost  tbd_eva2  SQL > create table direccioncliente(
+                                ->     direccionclid int not null auto_increment,
+                                ->     calle varchar(50) not null,
+                                ->     numero int not null,
+                                ->     colonia varchar(50) not null,
+                                ->     cp int not null,
+                                ->     ciudad varchar(50) not null,
+                                ->     estado varchar(50) not null,
+                                ->     clienteid int not null,
+                                ->     primary key (direccionclid),
+                                ->     foreign key (clienteid) references cliente(clienteid)
+                                -> );^C
+ MySQL  localhost  tbd_eva2  SQL > create table direccioncliente(     direccionclid int not null auto_increment,     calle varchar(50) not null,     numero int not null,     colonia varchar(50) not null,     cp int not null,     ciudad varchar(50) not null,     estado varchar(50) not null, pais varchar(50) not null,     clienteid int not null,     primary key (direccionclid),     foreign key (clienteid) references cliente(clienteid) );
+Query OK, 0 rows affected (0.0258 sec)
+ MySQL  localhost  tbd_eva2  SQL > show create table direccioncliente;
++------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Table            | Create Table                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
++------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| direccioncliente | CREATE TABLE `direccioncliente` (
+  `direccionclid` int NOT NULL AUTO_INCREMENT,
+  `calle` varchar(50) NOT NULL,
+  `numero` int NOT NULL,
+  `colonia` varchar(50) NOT NULL,
+  `cp` int NOT NULL,
+  `ciudad` varchar(50) NOT NULL,
+  `estado` varchar(50) NOT NULL,
+  `pais` varchar(50) NOT NULL,
+  `clienteid` int NOT NULL,
+  PRIMARY KEY (`direccionclid`),
+  KEY `clienteid` (`clienteid`),
+  CONSTRAINT `direccioncliente_ibfk_1` FOREIGN KEY (`clienteid`) REFERENCES `cliente` (`clienteid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci |
++------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+1 row in set (0.0085 sec)
+ MySQL  localhost  tbd_eva2  SQL > INSERT INTO direccioncliente 
+                                -> (direccionclid, calle, numero, colonia, cp, ciudad, estado, pais, clienteid) 
+                                -> VALUES 
+                                -> (1, 'Industrias', 11101, 'Complejo Industrial C', 31000, 'Chihuahua', 'Chihuahua', 'México', 1);
+Query OK, 1 row affected (0.0411 sec)
+ MySQL  localhost  tbd_eva2  SQL > select * from direccion cliente;
+ERROR: 1146 (42S02): Table 'tbd_eva2.direccion' doesn't exist
+ MySQL  localhost  tbd_eva2  SQL > select * from direccioncliente;
++---------------+------------+--------+-----------------------+-------+-----------+-----------+--------+-----------+
+| direccionclid | calle      | numero | colonia               | cp    | ciudad    | estado    | pais   | clienteid |
++---------------+------------+--------+-----------------------+-------+-----------+-----------+--------+-----------+
+|             1 | Industrias |  11101 | Complejo Industrial C | 31000 | Chihuahua | Chihuahua | México |         1 |
++---------------+------------+--------+-----------------------+-------+-----------+-----------+--------+-----------+
+1 row in set (0.0061 sec)
+ MySQL  localhost  tbd_eva2  SQL > 
