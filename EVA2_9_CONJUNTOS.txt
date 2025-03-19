@@ -1,0 +1,161 @@
+Last login: Tue Mar 18 16:14:01 on ttys001
+/Users/Gerardo/.zshrc:export:1: not valid in this context: export HOMEBREW_PREFIX
+Gerardo@luiss-mac ~ % mysqlsh
+MySQL Shell 9.2.0
+
+Copyright (c) 2016, 2025, Oracle and/or its affiliates.
+Oracle is a registered trademark of Oracle Corporation and/or its affiliates.
+Other names may be trademarks of their respective owners.
+
+Type '\help' or '\?' for help; '\quit' to exit.
+ MySQL  SQL > \c --mc root@localhost
+Creating a Classic session to 'root@localhost'
+Fetching global names for auto-completion... Press ^C to stop.
+Your MySQL connection id is 26
+Server version: 9.1.0 MySQL Community Server - GPL
+No default schema selected; type \use <schema> to set one.
+ MySQL  localhost  SQL > use tbd_eva2;
+Default schema set to `tbd_eva2`.
+Fetching global names, object names from `tbd_eva2` for auto-completion... Press ^C to stop.
+ MySQL  localhost  tbd_eva2  SQL > create tablaA(
+                                -> id int,
+                                -> valor varchar(10));
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'tablaA(
+id int,
+valor varchar(10))' at line 1
+ MySQL  localhost  tbd_eva2  SQL > create table tablaA( id int, valor varchar(10));
+Query OK, 0 rows affected (0.0924 sec)
+ MySQL  localhost  tbd_eva2  SQL > create table tablaB( id int, valor varchar(10));
+Query OK, 0 rows affected (0.0281 sec)
+ MySQL  localhost  tbd_eva2  SQL > insert into tablaA
+                                -> values(1,"A"),(2,"B"),(3,"C"),(2,"D");
+Query OK, 4 rows affected (0.0592 sec)
+
+Records: 4  Duplicates: 0  Warnings: 0
+ MySQL  localhost  tbd_eva2  SQL > insert into tablaB values(1,"X"),(2,"Y"),(3,"Z"),(4,"A"),(5,"B");
+Query OK, 5 rows affected (0.0231 sec)
+
+Records: 5  Duplicates: 0  Warnings: 0
+ MySQL  localhost  tbd_eva2  SQL > drop table tablaA;
+Query OK, 0 rows affected (0.0175 sec)
+ MySQL  localhost  tbd_eva2  SQL > create table tablaA( id int, valor varchar(10));
+Query OK, 0 rows affected (0.0178 sec)
+ MySQL  localhost  tbd_eva2  SQL > insert into tablaA values(1,"A"),(2,"B"),(3,"C"),(4,"D");
+Query OK, 4 rows affected (0.0039 sec)
+
+Records: 4  Duplicates: 0  Warnings: 0
+ MySQL  localhost  tbd_eva2  SQL > select * from producto
+                                -> where productoid in (
+                                -> select distinct(productoid) from venta_detalle);
++------------+---------+---------+--------+
+| productoid | nombre  | precio  | unidad |
++------------+---------+---------+--------+
+|          2 | Tablet  | 5000.45 | Pieza  |
+|          3 | Celular | 1000.50 | Pieza  |
++------------+---------+---------+--------+
+2 rows in set (0.0191 sec)
+ MySQL  localhost  tbd_eva2  SQL > select * from tablaa;
++----+-------+
+| id | valor |
++----+-------+
+|  1 | A     |
+|  2 | B     |
+|  3 | C     |
+|  4 | D     |
++----+-------+
+4 rows in set (0.0032 sec)
+ MySQL  localhost  tbd_eva2  SQL > select * from tablab;
++----+-------+
+| id | valor |
++----+-------+
+|  1 | X     |
+|  2 | Y     |
+|  3 | Z     |
+|  4 | A     |
+|  5 | B     |
++----+-------+
+5 rows in set (0.0029 sec)
+ MySQL  localhost  tbd_eva2  SQL > select * from tablaa;
++----+-------+
+| id | valor |
++----+-------+
+|  1 | A     |
+|  2 | B     |
+|  3 | C     |
+|  4 | D     |
++----+-------+
+4 rows in set (0.0024 sec)
+ MySQL  localhost  tbd_eva2  SQL > select * from tablab
+                                -> where valor in (select valor from tablab);
++----+-------+
+| id | valor |
++----+-------+
+|  1 | X     |
+|  2 | Y     |
+|  3 | Z     |
+|  4 | A     |
+|  5 | B     |
++----+-------+
+5 rows in set (0.0271 sec)
+ MySQL  localhost  tbd_eva2  SQL > select * from tablaa where valor in (select valor from tablab);
++----+-------+
+| id | valor |
++----+-------+
+|  1 | A     |
+|  2 | B     |
++----+-------+
+2 rows in set (0.0043 sec)
+ MySQL  localhost  tbd_eva2  SQL > select * from tablab
+                                -> where valor not in (select valor from tablab);
+Empty set (0.0521 sec)
+ MySQL  localhost  tbd_eva2  SQL > select * from tablaa where valor not in (select valor from tablab);
++----+-------+
+| id | valor |
++----+-------+
+|  3 | C     |
+|  4 | D     |
++----+-------+
+2 rows in set (0.0029 sec)
+ MySQL  localhost  tbd_eva2  SQL > select * from producto where producto id not in (
+                                -> select distinct(productoid) from venta_detalle)M
+                                -> ;
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'id not in (
+select distinct(productoid) from venta_detalle)M' at line 1
+ MySQL  localhost  tbd_eva2  SQL > select * from producto where producto id not in ( select distinct(productoid) from venta_detalle) ;
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'id not in ( select distinct(productoid) from venta_detalle)' at line 1
+ MySQL  localhost  tbd_eva2  SQL > select * from producto where productoid not in ( select distinct(productoid) from venta_detalle) ;
++------------+-----------+--------+--------+
+| productoid | nombre    | precio | unidad |
++------------+-----------+--------+--------+
+|          4 | Audifonos | 999.99 | Pieza  |
++------------+-----------+--------+--------+
+1 row in set (0.0399 sec)
+ MySQL  localhost  tbd_eva2  SQL > select from tablaa,tablab;
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from tablaa,tablab' at line 1
+ MySQL  localhost  tbd_eva2  SQL > select * from tablaa,tablab;
++----+-------+----+-------+
+| id | valor | id | valor |
++----+-------+----+-------+
+|  4 | D     |  1 | X     |
+|  3 | C     |  1 | X     |
+|  2 | B     |  1 | X     |
+|  1 | A     |  1 | X     |
+|  4 | D     |  2 | Y     |
+|  3 | C     |  2 | Y     |
+|  2 | B     |  2 | Y     |
+|  1 | A     |  2 | Y     |
+|  4 | D     |  3 | Z     |
+|  3 | C     |  3 | Z     |
+|  2 | B     |  3 | Z     |
+|  1 | A     |  3 | Z     |
+|  4 | D     |  4 | A     |
+|  3 | C     |  4 | A     |
+|  2 | B     |  4 | A     |
+|  1 | A     |  4 | A     |
+|  4 | D     |  5 | B     |
+|  3 | C     |  5 | B     |
+|  2 | B     |  5 | B     |
+|  1 | A     |  5 | B     |
++----+-------+----+-------+
+20 rows in set (0.0323 sec)
+ MySQL  localhost  tbd_eva2  SQL > 
