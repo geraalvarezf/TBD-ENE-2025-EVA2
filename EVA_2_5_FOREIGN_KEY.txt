@@ -1,0 +1,1920 @@
+Last login: Wed Apr  2 15:55:25 on ttys000
+/Users/Gerardo/.zshrc:export:1: not valid in this context: export HOMEBREW_PREFIX
+Gerardo@luiss-mac ~ % mysqlsh
+MySQL Shell 9.2.0
+
+Copyright (c) 2016, 2025, Oracle and/or its affiliates.
+Oracle is a registered trademark of Oracle Corporation and/or its affiliates.
+Other names may be trademarks of their respective owners.
+
+Type '\help' or '\?' for help; '\quit' to exit.
+ MySQL  SQL > \c --mc root@localhost
+Creating a Classic session to 'root@localhost'
+Fetching global names for auto-completion... Press ^C to stop.
+Your MySQL connection id is 12
+Server version: 9.1.0 MySQL Community Server - GPL
+No default schema selected; type \use <schema> to set one.
+ MySQL  localhost  SQL > USE sakila;
+Default schema set to `sakila`.
+Fetching global names, object names from `sakila` for auto-completion... Press ^C to stop.
+ MySQL  localhost  sakila  SQL > SELECT customer_id, first_name, last_name FROM customer WHERE customer_id IN (SELECT DISTINCT(customer_id) FROM payment) ORDER BY last_name, first_name;
++-------------+-------------+--------------+
+| customer_id | first_name  | last_name    |
++-------------+-------------+--------------+
+|         505 | RAFAEL      | ABNEY        |
+|         504 | NATHANIEL   | ADAM         |
+|          36 | KATHLEEN    | ADAMS        |
+|          96 | DIANA       | ALEXANDER    |
+|         470 | GORDON      | ALLARD       |
+|          27 | SHIRLEY     | ALLEN        |
+|         220 | CHARLENE    | ALVAREZ      |
+|          11 | LISA        | ANDERSON     |
+|         326 | JOSE        | ANDREW       |
+|         183 | IDA         | ANDREWS      |
+|         449 | OSCAR       | AQUINO       |
+|         368 | HARRY       | ARCE         |
+|         560 | JORDAN      | ARCHULETA    |
+|         188 | MELANIE     | ARMSTRONG    |
+|         170 | BEATRICE    | ARNOLD       |
+|         591 | KENT        | ARSENAULT    |
+|         345 | CARL        | ARTIS        |
+|         530 | DARRYL      | ASHCRAFT     |
+|         540 | TYRONE      | ASHER        |
+|         196 | ALMA        | AUSTIN       |
+|          60 | MILDRED     | BAILEY       |
+|          37 | PAMELA      | BAKER        |
+|         383 | MARTIN      | BALES        |
+|         559 | EVERETT     | BANDA        |
+|         215 | JESSIE      | BANKS        |
+|         551 | CLAYTON     | BARBEE       |
+|         503 | ANGEL       | BARCLAY      |
+|         362 | NICHOLAS    | BARFIELD     |
+|         382 | VICTOR      | BARKLEY      |
+|          79 | RACHEL      | BARNES       |
+|         275 | CAROLE      | BARNETT      |
+|         280 | TRACEY      | BARRETT      |
+|         295 | DAISY       | BATES        |
+|         317 | EDWARD      | BAUGH        |
+|         301 | ROBERT      | BAUGHMAN     |
+|          58 | JEAN        | BELL         |
+|         511 | CHESTER     | BENNER       |
+|          77 | JANE        | BENNETT      |
+|         168 | REGINA      | BERRY        |
+|         495 | CHARLIE     | BESS         |
+|         448 | MIGUEL      | BETANCOURT   |
+|         344 | HENRY       | BILLINGSLEY  |
+|         217 | AGNES       | BISHOP       |
+|         149 | VALERIE     | BLACK        |
+|         461 | DEREK       | BLAKELY      |
+|         539 | MATHEW      | BOLIN        |
+|         433 | DON         | BONE         |
+|         460 | LEON        | BOSTIC       |
+|         381 | BOBBY       | BOUDREAU     |
+|         476 | DERRICK     | BOURQUE      |
+|         447 | CLIFFORD    | BOWENS       |
+|         248 | CAROLINE    | BOWMAN       |
+|         573 | BYRON       | BOX          |
+|         134 | EMMA        | BOYD         |
+|         181 | ANA         | BRADLEY      |
+|         538 | TED         | BREAUX       |
+|         251 | VICKIE      | BREWER       |
+|         380 | RUSSELL     | BRINSON      |
+|          73 | BEVERLY     | BROOKS       |
+|         394 | CHRIS       | BROTHERS     |
+|           5 | ELIZABETH   | BROWN        |
+|         550 | GUY         | BROWNLEE     |
+|          95 | PAULA       | BRYANT       |
+|         537 | CLINTON     | BUFORD       |
+|         469 | WESLEY      | BULL         |
+|         325 | TIMOTHY     | BUNN         |
+|         432 | EDWIN       | BURK         |
+|         243 | LYDIA       | BURKE        |
+|         572 | SIDNEY      | BURLESON     |
+|         142 | APRIL       | BURNS        |
+|         227 | COLLEEN     | BURTON       |
+|         442 | LEROY       | BUSTAMANTE   |
+|          91 | LOIS        | BUTLER       |
+|         412 | ALLEN       | BUTTERFIELD  |
+|         261 | DEANNA      | BYRD         |
+|         310 | DANIEL      | CABRAL       |
+|         272 | KAY         | CALDWELL     |
+|          46 | CATHERINE   | CAMPBELL     |
+|         419 | CHAD        | CARBONE      |
+|         253 | TERRY       | CARLSON      |
+|         189 | LORETTA     | CARPENTER    |
+|         205 | EILEEN      | CARR         |
+|         401 | TONY        | CARRANZA     |
+|         176 | JUNE        | CARROLL      |
+|          40 | AMANDA      | CARTER       |
+|         468 | TIM         | CARY         |
+|         423 | ALFRED      | CASILLAS     |
+|         207 | GERTRUDE    | CASTILLO     |
+|         282 | JENNY       | CASTRO       |
+|         393 | PHILIP      | CAUSEY       |
+|         290 | KRISTINA    | CHAMBERS     |
+|         483 | VERNON      | CHAPA        |
+|         209 | TONYA       | CHAPMAN      |
+|         194 | KRISTEN     | CHAVEZ       |
+|         441 | MARIO       | CHEATHAM     |
+|         475 | PEDRO       | CHESTNUT     |
+|         571 | JOHNNIE     | CHISHOLM     |
+|         494 | RAMON       | CHOATE       |
+|         549 | NELSON      | CHRISTENSON  |
+|         536 | FERNANDO    | CHURCHILL    |
+|         599 | AUSTIN      | CINTRON      |
+|          21 | MICHELLE    | CLARK        |
+|         525 | ADRIAN      | CLARY        |
+|         440 | BERNARD     | COLBY        |
+|         108 | TRACY       | COLE         |
+|          82 | KATHRYN     | COLEMAN      |
+|         459 | TOMMY       | COLLAZO      |
+|          50 | DIANE       | COLLINS      |
+|          56 | GLORIA      | COOK         |
+|          62 | JOAN        | COOPER       |
+|         548 | ALLAN       | CORNISH      |
+|         502 | BRETT       | CORNWELL     |
+|         379 | CARLOS      | COUGHLIN     |
+|          64 | JUDITH      | COX          |
+|         324 | GARY        | COY          |
+|         288 | BOBBIE      | CRAIG        |
+|         132 | ESTHER      | CRAWFORD     |
+|         482 | MAURICE     | CRAWLEY      |
+|         570 | IVAN        | CROMWELL     |
+|         352 | ALBERT      | CROUSE       |
+|         118 | KIM         | CRUZ         |
+|         446 | THEODORE    | CULP         |
+|         378 | EUGENE      | CULPEPPER    |
+|         180 | STACY       | CUNNINGHAM   |
+|         316 | STEVEN      | CURLEY       |
+|         411 | NORMAN      | CURRIER      |
+|         270 | LEAH        | CURTIS       |
+|         150 | DANIELLE    | DANIELS      |
+|         262 | PATSY       | DAVIDSON     |
+|           6 | JENNIFER    | DAVIS        |
+|         245 | COURTNEY    | DAY          |
+|         236 | MARCIA      | DEAN         |
+|         467 | ALVIN       | DELOACH      |
+|         519 | RON         | DELUCA       |
+|         598 | WADE        | DELVALLE     |
+|         481 | HERMAN      | DEVORE       |
+|          99 | EMILY       | DIAZ         |
+|         139 | AMBER       | DIXON        |
+|         257 | MARSHA      | DOUGLAS      |
+|         392 | SEAN        | DOUGLASS     |
+|         458 | LLOYD       | DOWD         |
+|         597 | FREDDIE     | DUGGAN       |
+|         177 | SAMANTHA    | DUNCAN       |
+|         160 | ERIN        | DUNN         |
+|         418 | JEFF        | EAST         |
+|         510 | BEN         | EASTER       |
+|         466 | LEO         | EBERT        |
+|          49 | JOYCE       | EDWARDS      |
+|         558 | JIMMIE      | EGGLESTON    |
+|         422 | MELVIN      | ELLINGTON    |
+|         193 | KATIE       | ELLIOTT      |
+|         114 | GRACE       | ELLIS        |
+|         535 | JAVIER      | ELROD        |
+|         524 | JARED       | ELY          |
+|         547 | KURT        | EMMONS       |
+|         417 | TRAVIS      | ESTEP        |
+|          48 | ANN         | EVANS        |
+|         300 | JOHN        | FARNSWORTH   |
+|         439 | ALEXANDER   | FENNELL      |
+|         156 | BERTHA      | FERGUSON     |
+|         223 | MELINDA     | FERNANDEZ    |
+|         201 | VICKI       | FIELDS       |
+|         113 | CINDY       | FISHER       |
+|         258 | MYRTLE      | FLEMING      |
+|         293 | MAE         | FLETCHER     |
+|          89 | JULIA       | FLORES       |
+|         102 | CRYSTAL     | FORD         |
+|         445 | MICHEAL     | FORMAN       |
+|         596 | ENRIQUE     | FORSYTHE     |
+|         509 | RAUL        | FORTIER      |
+|         377 | HOWARD      | FORTNER      |
+|          93 | PHYLLIS     | FOSTER       |
+|         351 | JACK        | FOUST        |
+|         250 | JO          | FOWLER       |
+|         186 | HOLLY       | FOX          |
+|         350 | JUAN        | FRALEY       |
+|         431 | JOEL        | FRANCISCO    |
+|         199 | BETH        | FRANKLIN     |
+|         242 | GLENDA      | FRAZIER      |
+|         123 | SHANNON     | FREEMAN      |
+|         234 | CLAUDIA     | FULLER       |
+|         356 | GERALD      | FULTZ        |
+|         557 | FELIX       | GAFFNEY      |
+|         376 | RANDY       | GAITHER      |
+|         391 | CLARENCE    | GAMEZ        |
+|         465 | FLOYD       | GANDY        |
+|         299 | JAMES       | GANNON       |
+|          18 | CAROL       | GARCIA       |
+|         569 | DAVE        | GARDINER     |
+|         164 | JOANN       | GARDNER      |
+|         238 | NELLIE      | GARRETT      |
+|         224 | PEARL       | GARZA        |
+|         457 | BILL        | GAVIN        |
+|         501 | RUBEN       | GEARY        |
+|         230 | JOY         | GEORGE       |
+|         116 | VICTORIA    | GIBSON       |
+|         237 | TANYA       | GILBERT      |
+|         474 | DUSTIN      | GILLETTE     |
+|         349 | JOE         | GILLILAND    |
+|         338 | DENNIS      | GILMAN       |
+|         121 | JOSEPHINE   | GOMEZ        |
+|          94 | NORMA       | GONZALES     |
+|          38 | MARTHA      | GONZALEZ     |
+|         367 | ADAM        | GOOCH        |
+|         315 | KENNETH     | GOODEN       |
+|         143 | LESLIE      | GORDON       |
+|         343 | DOUGLAS     | GRAF         |
+|         104 | RITA        | GRAHAM       |
+|         154 | MICHELE     | GRANT        |
+|         276 | BRANDY      | GRAVES       |
+|          69 | JUDY        | GRAY         |
+|         309 | CHRISTOPHER | GRECO        |
+|          35 | VIRGINIA    | GREEN        |
+|         191 | JEANETTE    | GREENE       |
+|         284 | SONIA       | GREGORY      |
+|         454 | ALEX        | GRESHAM      |
+|         580 | ROSS        | GREY         |
+|          98 | LILLIAN     | GRIFFIN      |
+|         308 | THOMAS      | GRIGSBY      |
+|         355 | TERRY       | GRISSOM      |
+|         556 | ARMANDO     | GRUBER       |
+|         523 | HARVEY      | GUAJARDO     |
+|         529 | ERIK        | GUILLEN      |
+|         595 | TERRENCE    | GUNDERSON    |
+|         202 | CARLA       | GUTIERREZ    |
+|         296 | RAMONA      | HALE         |
+|          26 | JESSICA     | HALL         |
+|         103 | GLADYS      | HAMILTON     |
+|         590 | SETH        | HANNON       |
+|         222 | DELORES     | HANSEN       |
+|         244 | VIOLA       | HANSON       |
+|         518 | GABRIEL     | HARDER       |
+|         400 | BRYAN       | HARDISON     |
+|         493 | BRENT       | HARKINS      |
+|         185 | ROBERTA     | HARPER       |
+|          15 | HELEN       | HARRIS       |
+|         115 | WENDY       | HARRISON     |
+|         179 | DANA        | HART         |
+|         225 | ARLENE      | HARVEY       |
+|         480 | COREY       | HAUSER       |
+|         522 | ARNOLD      | HAVENS       |
+|         159 | JILL        | HAWKINS      |
+|         421 | LEE         | HAWKS        |
+|         100 | ROBIN       | HAYES        |
+|         390 | SHAWN       | HEATON       |
+|          81 | ANDREA      | HENDERSON    |
+|         568 | ALBERTO     | HENNING      |
+|         133 | PAULINE     | HENRY        |
+|          29 | ANGELA      | HERNANDEZ    |
+|         266 | NORA        | HERRERA      |
+|         589 | TRACY       | HERRMANN     |
+|         528 | CLAUDE      | HERZOG       |
+|         594 | EDUARDO     | HIATT        |
+|         131 | MONICA      | HICKS        |
+|         444 | MARCUS      | HIDALGO      |
+|          33 | ANNA        | HILL         |
+|         479 | ZACHARY     | HITE         |
+|         252 | MATTIE      | HOFFMAN      |
+|         256 | MABEL       | HOLLAND      |
+|         385 | PHILLIP     | HOLM         |
+|         145 | LUCILLE     | HOLMES       |
+|         291 | TONI        | HOLT         |
+|         263 | HILDA       | HOPKINS      |
+|         278 | BILLIE      | HORTON       |
+|         430 | RAY         | HOULE        |
+|          65 | ROSE        | HOWARD       |
+|         219 | WILLIE      | HOWELL       |
+|         508 | MILTON      | HOWLAND      |
+|         162 | LAUREN      | HUDSON       |
+|         366 | BRANDON     | HUEY         |
+|          88 | BONNIE      | HUGHES       |
+|         148 | ELEANOR     | HUNT         |
+|         130 | CHARLOTTE   | HUNTER       |
+|         374 | JEREMY      | HURTADO      |
+|         410 | CURTIS      | IRBY         |
+|         429 | FREDERICK   | ISBELL       |
+|         399 | DANNY       | ISOM         |
+|          13 | KAREN       | JACKSON      |
+|         231 | GEORGIA     | JACOBS       |
+|          71 | KATHY       | JAMES        |
+|          83 | LOUISE      | JENKINS      |
+|         274 | NAOMI       | JENNINGS     |
+|         259 | LENA        | JENSEN       |
+|         277 | OLGA        | JIMENEZ      |
+|           2 | PATRICIA    | JOHNSON      |
+|         214 | KRISTIN     | JOHNSTON     |
+|           4 | BARBARA     | JONES        |
+|         110 | TIFFANY     | JORDAN       |
+|         337 | JERRY       | JORDON       |
+|         307 | JOSEPH      | JOY          |
+|         534 | CHRISTIAN   | JUNG         |
+|         389 | ALAN        | KAHN         |
+|         198 | ELSIE       | KELLEY       |
+|          74 | DENISE      | KELLY        |
+|         137 | RHONDA      | KENNEDY      |
+|         464 | JEROME      | KENYON       |
+|         233 | LILLIE      | KIM          |
+|         500 | REGINALD    | KINDER       |
+|          30 | MELISSA     | KING         |
+|         155 | GAIL        | KNIGHT       |
+|         546 | KELLY       | KNOTT        |
+|         306 | CHARLES     | KOWALSKI     |
+|         492 | LESTER      | KRAUS        |
+|         428 | HERBERT     | KRUGER       |
+|         292 | MISTY       | LAMBERT      |
+|         420 | JACOB       | LANCE        |
+|         182 | RENEE       | LANE         |
+|         241 | HEIDI       | LARSON       |
+|         579 | DARYL       | LARUE        |
+|         192 | LAURIE      | LAWRENCE     |
+|         200 | JEANNE      | LAWSON       |
+|         361 | LAWRENCE    | LAWTON       |
+|          24 | KIMBERLY    | LEE          |
+|         373 | LOUIS       | LEONE        |
+|          23 | SARAH       | LEWIS        |
+|         314 | GEORGE      | LINTON       |
+|         226 | MAUREEN     | LITTLE       |
+|         555 | DWIGHT      | LOMBARDI     |
+|          86 | JACQUELINE  | LONG         |
+|          32 | AMY         | LOPEZ        |
+|         438 | BARRY       | LOVELACE     |
+|         273 | PRISCILLA   | LOWE         |
+|         286 | VELMA       | LUCAS        |
+|         578 | WILLARD     | LUMPKIN      |
+|         478 | LEWIS       | LYMAN        |
+|         235 | JACKIE      | LYNCH        |
+|         372 | STEVE       | MACKENZIE    |
+|         360 | RALPH       | MADRIGAL     |
+|         323 | MATTHEW     | MAHAN        |
+|         313 | DONALD      | MAHON        |
+|         577 | CLIFTON     | MALCOLM      |
+|         336 | JOSHUA      | MARK         |
+|         359 | WILLIE      | MARKHAM      |
+|         358 | SAMUEL      | MARLOW       |
+|         119 | SHERRY      | MARSHALL     |
+|         453 | CALVIN      | MARTEL       |
+|          16 | SANDRA      | MARTIN       |
+|          19 | RUTH        | MARTINEZ     |
+|         342 | HAROLD      | MARTINO      |
+|         135 | JUANITA     | MASON        |
+|         169 | ERICA       | MATTHEWS     |
+|         491 | RICK        | MATTOX       |
+|         335 | GREGORY     | MAULDIN      |
+|         264 | GWENDOLYN   | MAY          |
+|         567 | ALFREDO     | MCADAMS      |
+|         593 | RENE        | MCALISTER    |
+|         576 | MORRIS      | MCCARTER     |
+|         427 | JESUS       | MCCARTNEY    |
+|         218 | VERA        | MCCOY        |
+|         305 | RICHARD     | MCCRARY      |
+|         517 | BRAD        | MCCURDY      |
+|         117 | EDITH       | MCDONALD     |
+|         490 | SAM         | MCDUFFIE     |
+|         285 | MIRIAM      | MCKINNEY     |
+|         334 | RAYMOND     | MCWHORTER    |
+|         489 | RICARDO     | MEADOR       |
+|         249 | DORA        | MEDINA       |
+|         527 | CORY        | MEEHAN       |
+|         398 | ANTONIO     | MEEK         |
+|         566 | CASEY       | MENA         |
+|         341 | PETER       | MENARD       |
+|         246 | MARIAN      | MENDOZA      |
+|         216 | NATALIE     | MEYER        |
+|         533 | JESSIE      | MILAM        |
+|         287 | BECKY       | MILES        |
+|         488 | SHANE       | MILLARD      |
+|           7 | MARIA       | MILLER       |
+|         152 | ALICIA      | MILLS        |
+|         452 | TOM         | MILNER       |
+|          41 | STEPHANIE   | MITCHELL     |
+|         409 | RODNEY      | MOELLER      |
+|         211 | STACEY      | MONTGOMERY   |
+|           9 | MARGARET    | MOORE        |
+|         136 | ANITA       | MORALES      |
+|         247 | STELLA      | MORENO       |
+|          57 | EVELYN      | MORGAN       |
+|         388 | CRAIG       | MORRELL      |
+|          53 | HEATHER     | MORRIS       |
+|         221 | BESSIE      | MORRISON     |
+|         322 | JASON       | MORRISSEY    |
+|         426 | BRADLEY     | MOTLEY       |
+|          59 | CHERYL      | MURPHY       |
+|         122 | THELMA      | MURRAY       |
+|         408 | MANUEL      | MURRELL      |
+|         101 | PEGGY       | MYERS        |
+|         271 | PENNY       | NEAL         |
+|          39 | DEBRA       | NELSON       |
+|         565 | JAIME       | NETTLES      |
+|         437 | RANDALL     | NEUMANN      |
+|         340 | PATRICK     | NEWSOM       |
+|         354 | JUSTIN      | NGO          |
+|         229 | TAMARA      | NGUYEN       |
+|         153 | SUZANNE     | NICHOLS      |
+|         516 | ELMER       | NOE          |
+|         545 | JULIO       | NOLAND       |
+|         544 | CODY        | NOLEN        |
+|         281 | LEONA       | OBRIEN       |
+|         588 | MARION      | OCAMPO       |
+|         575 | ISAAC       | OGLESBY      |
+|         473 | JORGE       | OLIVARES     |
+|         210 | ELLA        | OLIVER       |
+|         175 | ANNETTE     | OLSON        |
+|         554 | DWAYNE      | OLVERA       |
+|         120 | SYLVIA      | ORTIZ        |
+|         499 | MARC        | OUTLAW       |
+|         111 | CARMEN      | OWENS        |
+|         477 | DAN         | PAINE        |
+|         151 | MEGAN       | PALMER       |
+|          47 | FRANCES     | PARKER       |
+|          87 | WANDA       | PATTERSON    |
+|         166 | LYNN        | PAYNE        |
+|         255 | IRMA        | PEARSON      |
+|         543 | LANCE       | PEMBERTON    |
+|         298 | ERIKA       | PENA         |
+|          42 | CAROLYN     | PEREZ        |
+|         161 | GERALDINE   | PERKINS      |
+|          84 | SARA        | PERRY        |
+|         339 | WALTER      | PERRYMAN     |
+|         197 | SUE         | PETERS       |
+|          68 | NICOLE      | PETERSON     |
+|         564 | BOB         | PFEIFFER     |
+|          45 | JANET       | PHILLIPS     |
+|         167 | SALLY       | PIERCE       |
+|         416 | JEFFERY     | PINSON       |
+|         553 | MAX         | PITT         |
+|         487 | HECTOR      | POINDEXTER   |
+|         129 | CARRIE      | PORTER       |
+|         371 | BILLY       | POULIN       |
+|          85 | ANNE        | POWELL       |
+|         463 | DARRELL     | POWER        |
+|         563 | KEN         | PREWITT      |
+|          76 | IRENE       | PRICE        |
+|         415 | GLENN       | PULLEN       |
+|         333 | ANDREW      | PURDY        |
+|         332 | STEPHEN     | QUALLS       |
+|         436 | TROY        | QUIGLEY      |
+|         348 | ROGER       | QUINTANILLA  |
+|         414 | VINCENT     | RALSTON      |
+|          70 | CHRISTINA   | RAMIREZ      |
+|         140 | EVA         | RAMOS        |
+|         515 | ANDRE       | RAPP         |
+|         407 | DALE        | RATCLIFF     |
+|         173 | AUDREY      | RAY          |
+|         451 | JIM         | REA          |
+|          55 | DORIS       | REED         |
+|         232 | CONSTANCE   | REID         |
+|         532 | NEIL        | RENNER       |
+|         141 | DEBBIE      | REYES        |
+|         112 | ROSA        | REYNOLDS     |
+|         507 | EDGAR       | RHOADS       |
+|         297 | SHERRI      | RHODES       |
+|         146 | JAMIE       | RICE         |
+|         212 | WILMA       | RICHARDS     |
+|          63 | ASHLEY      | RICHARDSON   |
+|         456 | RONNIE      | RICKETTS     |
+|         357 | KEITH       | RICO         |
+|         187 | BRITTANY    | RILEY        |
+|         312 | MARK        | RINEHART     |
+|          61 | KATHERINE   | RIVERA       |
+|         450 | JAY         | ROBB         |
+|         331 | ERIC        | ROBERT       |
+|          43 | CHRISTINE   | ROBERTS      |
+|         147 | JOANNE      | ROBERTSON    |
+|         472 | GREG        | ROBINS       |
+|          20 | SHARON      | ROBINSON     |
+|          22 | LAURA       | RODRIGUEZ    |
+|         289 | VIOLET      | RODRIQUEZ    |
+|          54 | TERESA      | ROGERS       |
+|         239 | MINNIE      | ROMERO       |
+|         157 | DARLENE     | ROSE         |
+|          80 | MARILYN     | ROSS         |
+|         592 | TERRANCE    | ROUSH        |
+|         304 | DAVID       | ROYAL        |
+|         184 | VIVIAN      | RUIZ         |
+|         406 | NATHAN      | RUNYON       |
+|          97 | ANNIE       | RUSSELL      |
+|         203 | TARA        | RYAN         |
+|         347 | RYAN        | SALISBURY    |
+|         498 | GENE        | SANBORN      |
+|          52 | JULIE       | SANCHEZ      |
+|          75 | TAMMY       | SANDERS      |
+|         303 | WILLIAM     | SATTERFIELD  |
+|         471 | DEAN        | SAUER        |
+|         353 | JONATHAN    | SCARBOROUGH  |
+|         387 | JESSE       | SCHILLING    |
+|         204 | ROSEMARY    | SCHMIDT      |
+|         405 | LEONARD     | SCHOFIELD    |
+|         397 | JIMMY       | SCHRADER     |
+|         321 | KEVIN       | SCHULER      |
+|         320 | ANTHONY     | SCHWAB       |
+|         365 | BRUCE       | SCHWARZ      |
+|          34 | REBECCA     | SCOTT        |
+|         404 | STANLEY     | SCROGGINS    |
+|         526 | KARL        | SEAL         |
+|         375 | AARON       | SELBY        |
+|         506 | LESLIE      | SEWARD       |
+|         396 | EARL        | SHANKS       |
+|         144 | CLARA       | SHAW         |
+|         435 | RICKY       | SHELBY       |
+|         330 | SCOTT       | SHELLEY      |
+|         279 | DIANNE      | SHELTON      |
+|         462 | WARREN      | SHERROD      |
+|         425 | FRANCIS     | SIKES        |
+|         254 | MAXINE      | SILVA        |
+|         302 | MICHAEL     | SILVERMAN    |
+|          92 | TINA        | SIMMONS      |
+|         346 | ARTHUR      | SIMPKINS     |
+|         126 | ELLEN       | SIMPSON      |
+|         195 | VANESSA     | SIMS         |
+|         443 | FRANCISCO   | SKIDMORE     |
+|         497 | GILBERT     | SLEDGE       |
+|         562 | WALLACE     | SLONE        |
+|           1 | MARY        | SMITH        |
+|         178 | MARION      | SNYDER       |
+|         268 | NINA        | SOTO         |
+|         521 | ROLAND      | SOUTH        |
+|         328 | JEFFREY     | SPEAR        |
+|         163 | CATHY       | SPENCER      |
+|         424 | KYLE        | SPURLOCK     |
+|         587 | SERGIO      | STANFIELD    |
+|         228 | ALLISON     | STANLEY      |
+|         586 | KIRK        | STCLAIR      |
+|         165 | LORRAINE    | STEPHENS     |
+|         384 | ERNEST      | STEPP        |
+|         127 | ELAINE      | STEVENS      |
+|          51 | ALICE       | STEWART      |
+|         561 | IAN         | STILL        |
+|         158 | VERONICA    | STONE        |
+|         105 | DAWN        | SULLIVAN     |
+|         283 | FELICIA     | SUTTON       |
+|         585 | PERRY       | SWAFFORD     |
+|         486 | GLEN        | TALBERT      |
+|         386 | TODD        | TAN          |
+|          10 | DOROTHY     | TAYLOR       |
+|         584 | SALVADOR    | TEEL         |
+|         265 | JENNIE      | TERRY        |
+|          12 | NANCY       | THOMAS       |
+|          17 | DONNA       | THOMPSON     |
+|         583 | MARSHALL    | THORN        |
+|         327 | LARRY       | THRASHER     |
+|         542 | LONNIE      | TIRADO       |
+|         485 | CLYDE       | TOBIAS       |
+|         434 | EDDIE       | TOMLIN       |
+|          67 | KELLY       | TORRES       |
+|         311 | PAUL        | TROUT        |
+|         514 | FRANKLIN    | TROUTMAN     |
+|         370 | WAYNE       | TRUONG       |
+|         513 | DUANE       | TUBBS        |
+|         128 | MARJORIE    | TUCKER       |
+|          44 | MARIE       | TURNER       |
+|         395 | JOHNNY      | TURPIN       |
+|         582 | ANDY        | VANHORN      |
+|         260 | CHRISTY     | VARGAS       |
+|         364 | BENJAMIN    | VARNEY       |
+|         206 | TERRI       | VASQUEZ      |
+|         574 | JULIAN      | VEST         |
+|         512 | CECIL       | VINES        |
+|         484 | ROBERTO     | VU           |
+|         267 | MARGIE      | WADE         |
+|         329 | FRANK       | WAGGONER     |
+|         171 | DOLORES     | WAGNER       |
+|         552 | HUGH        | WALDROP      |
+|          25 | DEBORAH     | WALKER       |
+|         106 | CONNIE      | WALLACE      |
+|         269 | CASSANDRA   | WALTERS      |
+|          66 | JANICE      | WARD         |
+|         138 | HAZEL       | WARREN       |
+|          90 | RUBY        | WASHINGTON   |
+|         174 | YVONNE      | WATKINS      |
+|          72 | THERESA     | WATSON       |
+|         294 | SHELLY      | WATTS        |
+|         531 | JAMIE       | WAUGH        |
+|         403 | MIKE        | WAY          |
+|         190 | YOLANDA     | WEAVER       |
+|         125 | ETHEL       | WEBB         |
+|         319 | RONALD      | WEINER       |
+|         240 | MARLENE     | WELCH        |
+|         124 | SHEILA      | WELLS        |
+|         109 | EDNA        | WEST         |
+|         520 | MITCHELL    | WESTMORELAND |
+|         369 | FRED        | WHEAT        |
+|         208 | LUCY        | WHEELER      |
+|          14 | BETTY       | WHITE        |
+|         363 | ROY         | WHITING      |
+|         455 | JON         | WILES        |
+|           3 | LINDA       | WILLIAMS     |
+|         213 | GINA        | WILLIAMSON   |
+|         172 | BERNICE     | WILLIS       |
+|           8 | SUSAN       | WILSON       |
+|         541 | DARREN      | WINDHAM      |
+|         581 | VIRGIL      | WOFFORD      |
+|          78 | LORI        | WOOD         |
+|         107 | FLORENCE    | WOODS        |
+|         496 | TYLER       | WREN         |
+|          31 | BRENDA      | WRIGHT       |
+|         318 | BRIAN       | WYMAN        |
+|         402 | LUIS        | YANEZ        |
+|         413 | MARVIN      | YEE          |
+|          28 | CYNTHIA     | YOUNG        |
++-------------+-------------+--------------+
+599 rows in set (0.0061 sec)
+ MySQL  localhost  sakila  SQL > SELECT customer_id, first_name, last_name FROM customer WHERE last_name LIKE 'WIL%';
++-------------+------------+------------+
+| customer_id | first_name | last_name  |
++-------------+------------+------------+
+|         455 | JON        | WILES      |
+|           3 | LINDA      | WILLIAMS   |
+|         213 | GINA       | WILLIAMSON |
+|         172 | BERNICE    | WILLIS     |
+|           8 | SUSAN      | WILSON     |
++-------------+------------+------------+
+5 rows in set (0.0005 sec)
+ MySQL  localhost  sakila  SQL > SELECT customer_id AS cliente_id, first_name AS nombre, last_name AS apellido FROM customer WHERE last_name LIKE 'A%';
++------------+-----------+-----------+
+| cliente_id | nombre    | apellido  |
++------------+-----------+-----------+
+|        505 | RAFAEL    | ABNEY     |
+|        504 | NATHANIEL | ADAM      |
+|         36 | KATHLEEN  | ADAMS     |
+|         96 | DIANA     | ALEXANDER |
+|        470 | GORDON    | ALLARD    |
+|         27 | SHIRLEY   | ALLEN     |
+|        220 | CHARLENE  | ALVAREZ   |
+|         11 | LISA      | ANDERSON  |
+|        326 | JOSE      | ANDREW    |
+|        183 | IDA       | ANDREWS   |
+|        449 | OSCAR     | AQUINO    |
+|        368 | HARRY     | ARCE      |
+|        560 | JORDAN    | ARCHULETA |
+|        188 | MELANIE   | ARMSTRONG |
+|        170 | BEATRICE  | ARNOLD    |
+|        591 | KENT      | ARSENAULT |
+|        345 | CARL      | ARTIS     |
+|        530 | DARRYL    | ASHCRAFT  |
+|        540 | TYRONE    | ASHER     |
+|        196 | ALMA      | AUSTIN    |
++------------+-----------+-----------+
+20 rows in set (0.0002 sec)
+ MySQL  localhost  sakila  SQL > SELECT SUM(amount) FROM payment;
++-------------+
+| SUM(amount) |
++-------------+
+|    67406.56 |
++-------------+
+1 row in set (0.0066 sec)
+ MySQL  localhost  sakila  SQL > SELECT MAX(amount) AS maximo FROM payment;
++--------+
+| maximo |
++--------+
+|  11.99 |
++--------+
+1 row in set (0.0045 sec)
+ MySQL  localhost  sakila  SQL > SELECT MIN(amount) AS minimo FROM payment;
++--------+
+| minimo |
++--------+
+|   0.00 |
++--------+
+1 row in set (0.0048 sec)
+ MySQL  localhost  sakila  SQL > DESC payment;
++--------------+-------------------+------+-----+-------------------+-----------------------------------------------+
+| Field        | Type              | Null | Key | Default           | Extra                                         |
++--------------+-------------------+------+-----+-------------------+-----------------------------------------------+
+| payment_id   | smallint unsigned | NO   | PRI | NULL              | auto_increment                                |
+| customer_id  | smallint unsigned | NO   | MUL | NULL              |                                               |
+| staff_id     | tinyint unsigned  | NO   | MUL | NULL              |                                               |
+| rental_id    | int               | YES  | MUL | NULL              |                                               |
+| amount       | decimal(5,2)      | NO   |     | NULL              |                                               |
+| payment_date | datetime          | NO   |     | NULL              |                                               |
+| last_update  | timestamp         | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED on update CURRENT_TIMESTAMP |
++--------------+-------------------+------+-----+-------------------+-----------------------------------------------+
+7 rows in set (0.0017 sec)
+ MySQL  localhost  sakila  SQL > SELECT SUM(amount) FROM payment WHERE customer_id = 200;
++-------------+
+| SUM(amount) |
++-------------+
+|      136.73 |
++-------------+
+1 row in set (0.0002 sec)
+ MySQL  localhost  sakila  SQL > SELECT COUNT(*) FROM customer;
++----------+
+| COUNT(*) |
++----------+
+|      599 |
++----------+
+1 row in set (0.0005 sec)
+ MySQL  localhost  sakila  SQL > SELECT customer_id, SUM(amount) AS total FROM payment GROUP BY customer_id;
++-------------+--------+
+| customer_id | total  |
++-------------+--------+
+|           1 | 118.68 |
+|           2 | 128.73 |
+|           3 | 135.74 |
+|           4 |  81.78 |
+|           5 | 144.62 |
+|           6 |  93.72 |
+|           7 | 151.67 |
+|           8 |  92.76 |
+|           9 |  89.77 |
+|          10 |  99.75 |
+|          11 | 106.76 |
+|          12 | 103.72 |
+|          13 | 131.73 |
+|          14 | 117.72 |
+|          15 | 134.68 |
+|          16 | 118.72 |
+|          17 |  98.79 |
+|          18 |  91.78 |
+|          19 | 125.76 |
+|          20 | 115.70 |
+|          21 | 155.65 |
+|          22 | 113.78 |
+|          23 | 119.70 |
+|          24 |  95.75 |
+|          25 | 115.71 |
+|          26 | 152.66 |
+|          27 | 126.69 |
+|          28 | 111.68 |
+|          29 | 140.64 |
+|          30 | 123.66 |
+|          31 | 104.74 |
+|          32 | 127.71 |
+|          33 |  91.79 |
+|          34 |  89.76 |
+|          35 | 129.68 |
+|          36 |  92.73 |
+|          37 |  95.77 |
+|          38 | 127.66 |
+|          39 | 141.71 |
+|          40 | 110.73 |
+|          41 | 118.75 |
+|          42 | 117.70 |
+|          43 |  99.76 |
+|          44 | 114.74 |
+|          45 | 127.73 |
+|          46 | 142.66 |
+|          47 | 108.78 |
+|          48 |  76.83 |
+|          49 | 130.72 |
+|          50 | 169.65 |
+|          51 | 138.67 |
+|          52 | 107.71 |
+|          53 | 115.70 |
+|          54 | 128.71 |
+|          55 | 100.78 |
+|          56 | 135.70 |
+|          57 | 114.72 |
+|          58 | 115.73 |
+|          59 | 133.73 |
+|          60 |  98.75 |
+|          61 |  58.86 |
+|          62 |  84.77 |
+|          63 | 112.75 |
+|          64 | 100.67 |
+|          65 | 103.78 |
+|          66 | 144.66 |
+|          67 |  99.78 |
+|          68 |  94.78 |
+|          69 |  96.75 |
+|          70 |  80.82 |
+|          71 | 129.70 |
+|          72 |  99.70 |
+|          73 |  97.76 |
+|          74 | 103.73 |
+|          75 | 155.59 |
+|          76 |  77.77 |
+|          77 | 100.72 |
+|          78 | 141.69 |
+|          79 |  84.78 |
+|          80 | 137.70 |
+|          81 |  93.78 |
+|          82 | 130.74 |
+|          83 | 101.75 |
+|          84 | 141.67 |
+|          85 |  87.77 |
+|          86 | 148.67 |
+|          87 | 145.70 |
+|          88 |  87.79 |
+|          89 | 134.68 |
+|          90 | 110.72 |
+|          91 | 113.65 |
+|          92 | 133.72 |
+|          93 |  91.77 |
+|          94 |  79.79 |
+|          95 |  77.82 |
+|          96 | 105.73 |
+|          97 |  58.82 |
+|          98 | 106.75 |
+|          99 |  91.76 |
+|         100 | 102.76 |
+|         101 |  96.76 |
+|         102 | 137.67 |
+|         103 | 146.69 |
+|         104 |  92.76 |
+|         105 | 120.74 |
+|         106 | 100.77 |
+|         107 | 126.70 |
+|         108 | 132.70 |
+|         109 | 107.74 |
+|         110 |  59.86 |
+|         111 |  97.74 |
+|         112 | 133.70 |
+|         113 | 113.71 |
+|         114 | 139.67 |
+|         115 |  91.70 |
+|         116 | 111.73 |
+|         117 |  71.81 |
+|         118 |  82.79 |
+|         119 | 153.66 |
+|         120 | 143.68 |
+|         121 | 109.74 |
+|         122 | 126.68 |
+|         123 | 100.76 |
+|         124 |  73.82 |
+|         125 | 135.68 |
+|         126 | 117.72 |
+|         127 | 107.76 |
+|         128 | 127.68 |
+|         129 | 124.66 |
+|         130 |  93.76 |
+|         131 | 128.70 |
+|         132 |  95.72 |
+|         133 |  98.73 |
+|         134 |  94.77 |
+|         135 | 110.70 |
+|         136 |  62.85 |
+|         137 | 194.61 |
+|         138 | 110.66 |
+|         139 | 113.73 |
+|         140 |  83.82 |
+|         141 | 130.68 |
+|         142 |  94.74 |
+|         143 |  89.78 |
+|         144 | 195.58 |
+|         145 | 108.72 |
+|         146 | 139.71 |
+|         147 | 127.66 |
+|         148 | 216.54 |
+|         149 | 121.74 |
+|         150 | 105.75 |
+|         151 |  92.73 |
+|         152 |  83.79 |
+|         153 |  94.76 |
+|         154 | 130.70 |
+|         155 | 109.75 |
+|         156 | 101.75 |
+|         157 | 113.69 |
+|         158 | 126.68 |
+|         159 |  68.79 |
+|         160 | 106.73 |
+|         161 | 112.70 |
+|         162 |  71.80 |
+|         163 | 122.71 |
+|         164 |  66.84 |
+|         165 |  86.79 |
+|         166 | 123.72 |
+|         167 | 119.68 |
+|         168 | 135.66 |
+|         169 |  95.78 |
+|         170 | 119.74 |
+|         171 | 114.74 |
+|         172 | 145.67 |
+|         173 | 119.71 |
+|         174 |  92.79 |
+|         175 |  98.76 |
+|         176 | 173.63 |
+|         177 |  71.77 |
+|         178 | 194.61 |
+|         179 | 133.71 |
+|         180 |  98.77 |
+|         181 | 174.66 |
+|         182 |  97.74 |
+|         183 |  76.77 |
+|         184 |  90.77 |
+|         185 |  84.77 |
+|         186 | 114.69 |
+|         187 | 159.72 |
+|         188 |  92.75 |
+|         189 |  93.78 |
+|         190 | 110.73 |
+|         191 |  74.80 |
+|         192 |  99.77 |
+|         193 | 109.75 |
+|         194 |  87.82 |
+|         195 |  86.81 |
+|         196 | 151.65 |
+|         197 | 154.60 |
+|         198 | 141.63 |
+|         199 | 103.75 |
+|         200 | 136.73 |
+|         201 | 108.75 |
+|         202 | 103.74 |
+|         203 |  88.80 |
+|         204 | 147.65 |
+|         205 |  80.82 |
+|         206 | 126.73 |
+|         207 | 137.66 |
+|         208 |  91.74 |
+|         209 | 161.68 |
+|         210 | 137.69 |
+|         211 | 151.66 |
+|         212 |  91.80 |
+|         213 | 111.72 |
+|         214 | 116.69 |
+|         215 |  91.74 |
+|         216 |  95.77 |
+|         217 |  98.77 |
+|         218 |  67.82 |
+|         219 | 101.74 |
+|         220 | 114.73 |
+|         221 | 132.72 |
+|         222 |  91.79 |
+|         223 |  80.83 |
+|         224 |  76.78 |
+|         225 | 120.74 |
+|         226 |  87.79 |
+|         227 |  87.76 |
+|         228 |  92.73 |
+|         229 |  93.75 |
+|         230 | 124.67 |
+|         231 | 110.74 |
+|         232 |  95.75 |
+|         233 |  89.77 |
+|         234 | 111.74 |
+|         235 |  93.75 |
+|         236 | 175.58 |
+|         237 | 144.67 |
+|         238 |  94.79 |
+|         239 | 142.66 |
+|         240 | 117.74 |
+|         241 | 122.66 |
+|         242 | 140.68 |
+|         243 |  82.76 |
+|         244 | 129.68 |
+|         245 | 132.68 |
+|         246 | 107.77 |
+|         247 | 104.78 |
+|         248 |  50.85 |
+|         249 | 107.77 |
+|         250 |  73.80 |
+|         251 | 120.69 |
+|         252 |  64.78 |
+|         253 | 127.71 |
+|         254 | 116.68 |
+|         255 |  70.82 |
+|         256 | 112.70 |
+|         257 | 151.63 |
+|         258 | 110.76 |
+|         259 | 168.68 |
+|         260 | 122.69 |
+|         261 | 107.74 |
+|         262 | 119.72 |
+|         263 | 122.71 |
+|         264 |  98.75 |
+|         265 | 133.71 |
+|         266 | 118.72 |
+|         267 | 159.64 |
+|         268 | 123.71 |
+|         269 | 129.70 |
+|         270 | 104.75 |
+|         271 |  68.82 |
+|         272 |  98.80 |
+|         273 | 157.65 |
+|         274 | 152.65 |
+|         275 | 108.70 |
+|         276 | 122.72 |
+|         277 | 144.68 |
+|         278 |  88.74 |
+|         279 | 135.69 |
+|         280 | 118.73 |
+|         281 |  50.86 |
+|         282 | 103.73 |
+|         283 |  86.72 |
+|         284 | 126.72 |
+|         285 | 135.74 |
+|         286 | 117.73 |
+|         287 | 115.71 |
+|         288 |  80.76 |
+|         289 | 142.70 |
+|         290 | 109.72 |
+|         291 |  95.77 |
+|         292 | 118.73 |
+|         293 | 158.69 |
+|         294 | 113.74 |
+|         295 | 162.62 |
+|         296 | 129.70 |
+|         297 | 128.67 |
+|         298 | 101.74 |
+|         299 | 131.70 |
+|         300 | 137.69 |
+|         301 |  92.79 |
+|         302 | 127.71 |
+|         303 | 100.74 |
+|         304 | 115.74 |
+|         305 | 109.75 |
+|         306 | 138.68 |
+|         307 | 134.70 |
+|         308 | 105.75 |
+|         309 | 147.69 |
+|         310 |  97.80 |
+|         311 | 120.77 |
+|         312 | 104.74 |
+|         313 |  89.77 |
+|         314 | 131.67 |
+|         315 |  84.83 |
+|         316 | 132.71 |
+|         317 | 114.72 |
+|         318 |  52.88 |
+|         319 | 132.70 |
+|         320 |  71.80 |
+|         321 | 116.78 |
+|         322 | 128.72 |
+|         323 | 114.69 |
+|         324 | 103.75 |
+|         325 |  91.78 |
+|         326 |  96.75 |
+|         327 | 112.74 |
+|         328 |  90.77 |
+|         329 | 127.68 |
+|         330 |  94.75 |
+|         331 | 122.73 |
+|         332 | 118.72 |
+|         333 | 109.73 |
+|         334 | 135.70 |
+|         335 |  78.77 |
+|         336 | 119.70 |
+|         337 | 143.71 |
+|         338 | 114.72 |
+|         339 | 127.70 |
+|         340 | 119.69 |
+|         341 | 106.77 |
+|         342 | 130.68 |
+|         343 | 114.75 |
+|         344 |  73.82 |
+|         345 | 106.77 |
+|         346 | 155.68 |
+|         347 | 142.70 |
+|         348 | 146.64 |
+|         349 | 138.71 |
+|         350 |  73.77 |
+|         351 |  89.76 |
+|         352 |  99.77 |
+|         353 |  72.82 |
+|         354 | 129.64 |
+|         355 |  72.80 |
+|         356 | 121.70 |
+|         357 |  89.74 |
+|         358 |  80.79 |
+|         359 | 101.75 |
+|         360 | 150.66 |
+|         361 | 100.69 |
+|         362 | 145.68 |
+|         363 | 143.71 |
+|         364 |  95.77 |
+|         365 | 103.77 |
+|         366 | 152.63 |
+|         367 | 101.78 |
+|         368 | 157.65 |
+|         369 |  88.75 |
+|         370 |  70.81 |
+|         371 | 149.65 |
+|         372 | 158.66 |
+|         373 | 161.65 |
+|         374 | 103.72 |
+|         375 | 110.76 |
+|         376 | 110.72 |
+|         377 |  93.74 |
+|         378 |  71.81 |
+|         379 | 106.77 |
+|         380 | 136.64 |
+|         381 | 106.65 |
+|         382 |  91.76 |
+|         383 | 103.73 |
+|         384 |  89.75 |
+|         385 | 101.74 |
+|         386 | 117.71 |
+|         387 | 101.74 |
+|         388 | 124.70 |
+|         389 | 124.74 |
+|         390 | 152.67 |
+|         391 | 104.70 |
+|         392 |  91.77 |
+|         393 | 121.69 |
+|         394 |  84.78 |
+|         395 |  57.81 |
+|         396 | 111.73 |
+|         397 | 105.71 |
+|         398 |  78.84 |
+|         399 |  91.79 |
+|         400 | 124.72 |
+|         401 |  73.79 |
+|         402 |  79.80 |
+|         403 | 166.65 |
+|         404 | 139.70 |
+|         405 | 109.68 |
+|         406 | 122.68 |
+|         407 | 112.73 |
+|         408 | 116.70 |
+|         409 | 104.77 |
+|         410 | 167.62 |
+|         411 |  80.74 |
+|         412 |  85.79 |
+|         413 |  75.79 |
+|         414 | 105.75 |
+|         415 |  93.77 |
+|         416 | 121.69 |
+|         417 | 110.75 |
+|         418 | 107.70 |
+|         419 |  89.75 |
+|         420 |  79.79 |
+|         421 | 119.73 |
+|         422 |  97.74 |
+|         423 | 120.74 |
+|         424 | 110.70 |
+|         425 | 104.74 |
+|         426 | 126.73 |
+|         427 | 114.76 |
+|         428 |  78.80 |
+|         429 | 105.79 |
+|         430 |  79.78 |
+|         431 |  95.77 |
+|         432 | 116.77 |
+|         433 | 133.75 |
+|         434 | 128.73 |
+|         435 |  91.75 |
+|         436 | 144.70 |
+|         437 |  99.77 |
+|         438 | 134.67 |
+|         439 | 151.64 |
+|         440 |  88.78 |
+|         441 | 112.72 |
+|         442 | 118.68 |
+|         443 |  98.78 |
+|         444 | 115.70 |
+|         445 | 102.74 |
+|         446 | 116.69 |
+|         447 | 113.71 |
+|         448 | 135.71 |
+|         449 |  99.80 |
+|         450 |  89.74 |
+|         451 | 128.67 |
+|         452 | 107.68 |
+|         453 | 111.77 |
+|         454 | 151.67 |
+|         455 |  87.76 |
+|         456 | 100.75 |
+|         457 | 114.72 |
+|         458 |  66.81 |
+|         459 | 186.62 |
+|         460 | 109.75 |
+|         461 |  97.72 |
+|         462 | 159.67 |
+|         463 |  91.75 |
+|         464 |  73.84 |
+|         465 |  69.83 |
+|         466 | 104.77 |
+|         467 | 139.71 |
+|         468 | 175.61 |
+|         469 | 177.60 |
+|         470 | 160.68 |
+|         471 | 109.73 |
+|         472 | 141.70 |
+|         473 | 134.66 |
+|         474 | 100.74 |
+|         475 | 103.76 |
+|         476 |  95.78 |
+|         477 | 109.78 |
+|         478 |  86.81 |
+|         479 | 146.69 |
+|         480 | 101.78 |
+|         481 | 115.71 |
+|         482 | 138.71 |
+|         483 |  88.82 |
+|         484 | 139.70 |
+|         485 | 115.71 |
+|         486 | 113.74 |
+|         487 | 119.74 |
+|         488 |  95.78 |
+|         489 |  99.79 |
+|         490 | 117.76 |
+|         491 | 124.73 |
+|         492 |  65.84 |
+|         493 | 112.77 |
+|         494 | 140.69 |
+|         495 | 120.74 |
+|         496 |  88.79 |
+|         497 | 129.72 |
+|         498 |  97.73 |
+|         499 | 123.70 |
+|         500 | 115.72 |
+|         501 |  89.79 |
+|         502 | 138.66 |
+|         503 | 115.68 |
+|         504 | 133.72 |
+|         505 |  97.79 |
+|         506 | 152.65 |
+|         507 |  95.75 |
+|         508 | 127.75 |
+|         509 | 100.80 |
+|         510 | 122.74 |
+|         511 |  99.76 |
+|         512 | 115.74 |
+|         513 | 148.69 |
+|         514 |  74.78 |
+|         515 | 126.72 |
+|         516 |  98.74 |
+|         517 | 105.75 |
+|         518 | 111.74 |
+|         519 | 103.77 |
+|         520 | 134.68 |
+|         521 |  80.77 |
+|         522 | 167.67 |
+|         523 |  93.78 |
+|         524 |  87.81 |
+|         525 |  74.81 |
+|         526 | 221.55 |
+|         527 |  81.76 |
+|         528 | 111.75 |
+|         529 | 118.71 |
+|         530 |  76.77 |
+|         531 | 118.75 |
+|         532 | 152.68 |
+|         533 | 141.67 |
+|         534 |  88.76 |
+|         535 | 135.68 |
+|         536 | 117.75 |
+|         537 | 103.75 |
+|         538 | 117.71 |
+|         539 |  90.78 |
+|         540 | 112.76 |
+|         541 | 108.76 |
+|         542 |  94.82 |
+|         543 |  82.78 |
+|         544 |  98.78 |
+|         545 |  89.79 |
+|         546 | 103.75 |
+|         547 |  99.77 |
+|         548 |  79.81 |
+|         549 |  77.80 |
+|         550 | 159.68 |
+|         551 |  96.74 |
+|         552 |  90.79 |
+|         553 | 107.76 |
+|         554 | 101.78 |
+|         555 |  74.83 |
+|         556 |  83.79 |
+|         557 |  73.76 |
+|         558 | 135.72 |
+|         559 | 110.72 |
+|         560 | 132.70 |
+|         561 |  96.73 |
+|         562 | 109.75 |
+|         563 | 110.71 |
+|         564 |  91.76 |
+|         565 | 126.71 |
+|         566 | 141.66 |
+|         567 |  85.80 |
+|         568 |  66.79 |
+|         569 | 134.68 |
+|         570 |  99.74 |
+|         571 | 121.76 |
+|         572 | 108.75 |
+|         573 | 120.71 |
+|         574 | 109.72 |
+|         575 | 126.71 |
+|         576 | 139.66 |
+|         577 | 117.73 |
+|         578 |  96.78 |
+|         579 | 111.73 |
+|         580 |  99.73 |
+|         581 | 107.73 |
+|         582 | 113.75 |
+|         583 | 117.77 |
+|         584 | 129.70 |
+|         585 | 117.76 |
+|         586 |  64.81 |
+|         587 | 108.74 |
+|         588 | 115.71 |
+|         589 | 129.72 |
+|         590 | 112.75 |
+|         591 | 134.73 |
+|         592 | 111.71 |
+|         593 | 113.74 |
+|         594 | 130.73 |
+|         595 | 117.70 |
+|         596 |  96.72 |
+|         597 |  99.75 |
+|         598 |  83.78 |
+|         599 |  83.81 |
++-------------+--------+
+599 rows in set (0.0187 sec)
+ MySQL  localhost  sakila  SQL > SELECT c.customer_id, c.first_name, c.last_name, MAX(p.amount) AS maximo_pago FROM customer c JOIN payment p ON c.customer_id = p.customer_id GROUP BY c.customer_id, c.first_name, c.last_name;
++-------------+-------------+--------------+-------------+
+| customer_id | first_name  | last_name    | maximo_pago |
++-------------+-------------+--------------+-------------+
+|           1 | MARY        | SMITH        |        9.99 |
+|           2 | PATRICIA    | JOHNSON      |       10.99 |
+|           3 | LINDA       | WILLIAMS     |       10.99 |
+|           4 | BARBARA     | JONES        |        8.99 |
+|           5 | ELIZABETH   | BROWN        |        9.99 |
+|           6 | JENNIFER    | DAVIS        |        7.99 |
+|           7 | MARIA       | MILLER       |        8.99 |
+|           8 | SUSAN       | WILSON       |        9.99 |
+|           9 | MARGARET    | MOORE        |        7.99 |
+|          10 | DOROTHY     | TAYLOR       |        8.99 |
+|          11 | LISA        | ANDERSON     |        9.99 |
+|          12 | NANCY       | THOMAS       |       10.99 |
+|          13 | KAREN       | JACKSON      |       11.99 |
+|          14 | BETTY       | WHITE        |        9.99 |
+|          15 | HELEN       | HARRIS       |        8.99 |
+|          16 | SANDRA      | MARTIN       |        8.99 |
+|          17 | DONNA       | THOMPSON     |        8.99 |
+|          18 | CAROL       | GARCIA       |        8.99 |
+|          19 | RUTH        | MARTINEZ     |        9.99 |
+|          20 | SHARON      | ROBINSON     |        7.99 |
+|          21 | MICHELLE    | CLARK        |       10.99 |
+|          22 | LAURA       | RODRIGUEZ    |        9.99 |
+|          23 | SARAH       | LEWIS        |        9.99 |
+|          24 | KIMBERLY    | LEE          |        8.99 |
+|          25 | DEBORAH     | WALKER       |        8.99 |
+|          26 | JESSICA     | HALL         |        9.99 |
+|          27 | SHIRLEY     | ALLEN        |        8.99 |
+|          28 | CYNTHIA     | YOUNG        |        9.99 |
+|          29 | ANGELA      | HERNANDEZ    |       10.99 |
+|          30 | MELISSA     | KING         |        9.99 |
+|          31 | BRENDA      | WRIGHT       |        9.99 |
+|          32 | AMY         | LOPEZ        |        9.99 |
+|          33 | ANNA        | HILL         |       10.99 |
+|          34 | REBECCA     | SCOTT        |        7.99 |
+|          35 | VIRGINIA    | GREEN        |        7.99 |
+|          36 | KATHLEEN    | ADAMS        |        9.99 |
+|          37 | PAMELA      | BAKER        |        9.99 |
+|          38 | MARTHA      | GONZALEZ     |        6.99 |
+|          39 | DEBRA       | NELSON       |        9.99 |
+|          40 | AMANDA      | CARTER       |        9.99 |
+|          41 | STEPHANIE   | MITCHELL     |        9.99 |
+|          42 | CAROLYN     | PEREZ        |        7.99 |
+|          43 | CHRISTINE   | ROBERTS      |        6.99 |
+|          44 | MARIE       | TURNER       |        9.99 |
+|          45 | JANET       | PHILLIPS     |       10.99 |
+|          46 | CATHERINE   | CAMPBELL     |        8.99 |
+|          47 | FRANCES     | PARKER       |        9.99 |
+|          48 | ANN         | EVANS        |        9.99 |
+|          49 | JOYCE       | EDWARDS      |       10.99 |
+|          50 | DIANE       | COLLINS      |       10.99 |
+|          51 | ALICE       | STEWART      |        9.99 |
+|          52 | JULIE       | SANCHEZ      |        7.99 |
+|          53 | HEATHER     | MORRIS       |        9.99 |
+|          54 | TERESA      | ROGERS       |       10.99 |
+|          55 | DORIS       | REED         |        9.99 |
+|          56 | GLORIA      | COOK         |        8.99 |
+|          57 | EVELYN      | MORGAN       |        9.99 |
+|          58 | JEAN        | BELL         |        9.99 |
+|          59 | CHERYL      | MURPHY       |        8.99 |
+|          60 | MILDRED     | BAILEY       |        9.98 |
+|          61 | KATHERINE   | RIVERA       |        9.99 |
+|          62 | JOAN        | COOPER       |        8.99 |
+|          63 | ASHLEY      | RICHARDSON   |        8.99 |
+|          64 | JUDITH      | COX          |        6.99 |
+|          65 | ROSE        | HOWARD       |        8.99 |
+|          66 | JANICE      | WARD         |        8.99 |
+|          67 | KELLY       | TORRES       |        9.99 |
+|          68 | NICOLE      | PETERSON     |        8.99 |
+|          69 | JUDY        | GRAY         |        8.99 |
+|          70 | CHRISTINA   | RAMIREZ      |        9.99 |
+|          71 | KATHY       | JAMES        |        9.99 |
+|          72 | THERESA     | WATSON       |        6.99 |
+|          73 | BEVERLY     | BROOKS       |        9.99 |
+|          74 | DENISE      | KELLY        |        7.99 |
+|          75 | TAMMY       | SANDERS      |        9.99 |
+|          76 | IRENE       | PRICE        |       10.99 |
+|          77 | JANE        | BENNETT      |        9.99 |
+|          78 | LORI        | WOOD         |       10.99 |
+|          79 | RACHEL      | BARNES       |        9.99 |
+|          80 | MARILYN     | ROSS         |        8.99 |
+|          81 | ANDREA      | HENDERSON    |        9.99 |
+|          82 | KATHRYN     | COLEMAN      |        9.99 |
+|          83 | LOUISE      | JENKINS      |        6.99 |
+|          84 | SARA        | PERRY        |        9.99 |
+|          85 | ANNE        | POWELL       |        9.99 |
+|          86 | JACQUELINE  | LONG         |       10.99 |
+|          87 | WANDA       | PATTERSON    |       10.99 |
+|          88 | BONNIE      | HUGHES       |        8.99 |
+|          89 | JULIA       | FLORES       |        8.99 |
+|          90 | RUBY        | WASHINGTON   |        9.99 |
+|          91 | LOIS        | BUTLER       |        5.99 |
+|          92 | TINA        | SIMMONS      |        8.99 |
+|          93 | PHYLLIS     | FOSTER       |        8.99 |
+|          94 | NORMA       | GONZALES     |        8.99 |
+|          95 | PAULA       | BRYANT       |        7.99 |
+|          96 | DIANA       | ALEXANDER    |        7.99 |
+|          97 | ANNIE       | RUSSELL      |        5.99 |
+|          98 | LILLIAN     | GRIFFIN      |        7.99 |
+|          99 | EMILY       | DIAZ         |        8.99 |
+|         100 | ROBIN       | HAYES        |        8.99 |
+|         101 | PEGGY       | MYERS        |        9.99 |
+|         102 | CRYSTAL     | FORD         |        9.99 |
+|         103 | GLADYS      | HAMILTON     |        9.99 |
+|         104 | RITA        | GRAHAM       |       10.99 |
+|         105 | DAWN        | SULLIVAN     |        9.99 |
+|         106 | CONNIE      | WALLACE      |        8.99 |
+|         107 | FLORENCE    | WOODS        |        7.99 |
+|         108 | TRACY       | COLE         |        8.99 |
+|         109 | EDNA        | WEST         |        7.99 |
+|         110 | TIFFANY     | JORDAN       |        8.99 |
+|         111 | CARMEN      | OWENS        |        9.99 |
+|         112 | ROSA        | REYNOLDS     |        8.99 |
+|         113 | CINDY       | FISHER       |        8.99 |
+|         114 | GRACE       | ELLIS        |       10.99 |
+|         115 | WENDY       | HARRISON     |        6.99 |
+|         116 | VICTORIA    | GIBSON       |       11.99 |
+|         117 | EDITH       | MCDONALD     |        9.99 |
+|         118 | KIM         | CRUZ         |        7.99 |
+|         119 | SHERRY      | MARSHALL     |        8.99 |
+|         120 | SYLVIA      | ORTIZ        |        9.99 |
+|         121 | JOSEPHINE   | GOMEZ        |        9.99 |
+|         122 | THELMA      | MURRAY       |        7.99 |
+|         123 | SHANNON     | FREEMAN      |        8.99 |
+|         124 | SHEILA      | WELLS        |        8.99 |
+|         125 | ETHEL       | WEBB         |        9.99 |
+|         126 | ELLEN       | SIMPSON      |        9.99 |
+|         127 | ELAINE      | STEVENS      |       10.99 |
+|         128 | MARJORIE    | TUCKER       |        8.99 |
+|         129 | CARRIE      | PORTER       |       10.99 |
+|         130 | CHARLOTTE   | HUNTER       |        6.99 |
+|         131 | MONICA      | HICKS        |        9.99 |
+|         132 | ESTHER      | CRAWFORD     |        6.99 |
+|         133 | PAULINE     | HENRY        |        7.99 |
+|         134 | EMMA        | BOYD         |        9.99 |
+|         135 | JUANITA     | MASON        |        7.99 |
+|         136 | ANITA       | MORALES      |       10.99 |
+|         137 | RHONDA      | KENNEDY      |        9.99 |
+|         138 | HAZEL       | WARREN       |        9.99 |
+|         139 | AMBER       | DIXON        |        9.99 |
+|         140 | EVA         | RAMOS        |       10.99 |
+|         141 | DEBBIE      | REYES        |        7.99 |
+|         142 | APRIL       | BURNS        |        9.99 |
+|         143 | LESLIE      | GORDON       |        7.99 |
+|         144 | CLARA       | SHAW         |        9.99 |
+|         145 | LUCILLE     | HOLMES       |        8.99 |
+|         146 | JAMIE       | RICE         |        7.99 |
+|         147 | JOANNE      | ROBERTSON    |        8.99 |
+|         148 | ELEANOR     | HUNT         |       10.99 |
+|         149 | VALERIE     | BLACK        |       10.99 |
+|         150 | DANIELLE    | DANIELS      |        9.99 |
+|         151 | MEGAN       | PALMER       |        5.99 |
+|         152 | ALICIA      | MILLS        |        7.99 |
+|         153 | SUZANNE     | NICHOLS      |        9.99 |
+|         154 | MICHELE     | GRANT        |        7.99 |
+|         155 | GAIL        | KNIGHT       |        8.99 |
+|         156 | BERTHA      | FERGUSON     |        9.99 |
+|         157 | DARLENE     | ROSE         |        6.99 |
+|         158 | VERONICA    | STONE        |        8.99 |
+|         159 | JILL        | HAWKINS      |        8.99 |
+|         160 | ERIN        | DUNN         |        7.99 |
+|         161 | GERALDINE   | PERKINS      |        7.99 |
+|         162 | LAUREN      | HUDSON       |        7.99 |
+|         163 | CATHY       | SPENCER      |       10.99 |
+|         164 | JOANN       | GARDNER      |        8.99 |
+|         165 | LORRAINE    | STEPHENS     |        7.99 |
+|         166 | LYNN        | PAYNE        |        8.99 |
+|         167 | SALLY       | PIERCE       |        6.99 |
+|         168 | REGINA      | BERRY        |       10.99 |
+|         169 | ERICA       | MATTHEWS     |        9.99 |
+|         170 | BEATRICE    | ARNOLD       |        9.99 |
+|         171 | DOLORES     | WAGNER       |        9.99 |
+|         172 | BERNICE     | WILLIS       |        8.99 |
+|         173 | AUDREY      | RAY          |        8.99 |
+|         174 | YVONNE      | WATKINS      |        8.99 |
+|         175 | ANNETTE     | OLSON        |        7.99 |
+|         176 | JUNE        | CARROLL      |        8.99 |
+|         177 | SAMANTHA    | DUNCAN       |        9.99 |
+|         178 | MARION      | SNYDER       |       10.99 |
+|         179 | DANA        | HART         |        8.99 |
+|         180 | STACY       | CUNNINGHAM   |        9.99 |
+|         181 | ANA         | BRADLEY      |        9.99 |
+|         182 | RENEE       | LANE         |        8.99 |
+|         183 | IDA         | ANDREWS      |        5.99 |
+|         184 | VIVIAN      | RUIZ         |        9.99 |
+|         185 | ROBERTA     | HARPER       |        9.99 |
+|         186 | HOLLY       | FOX          |        8.99 |
+|         187 | BRITTANY    | RILEY        |       10.99 |
+|         188 | MELANIE     | ARMSTRONG    |        5.99 |
+|         189 | LORETTA     | CARPENTER    |        9.99 |
+|         190 | YOLANDA     | WEAVER       |        9.99 |
+|         191 | JEANETTE    | GREENE       |        6.99 |
+|         192 | LAURIE      | LAWRENCE     |        7.99 |
+|         193 | KATIE       | ELLIOTT      |        8.99 |
+|         194 | KRISTEN     | CHAVEZ       |        7.99 |
+|         195 | VANESSA     | SIMS         |       11.99 |
+|         196 | ALMA        | AUSTIN       |       11.99 |
+|         197 | SUE         | PETERS       |        9.99 |
+|         198 | ELSIE       | KELLEY       |        6.99 |
+|         199 | BETH        | FRANKLIN     |        8.99 |
+|         200 | JEANNE      | LAWSON       |       10.99 |
+|         201 | VICKI       | FIELDS       |        9.99 |
+|         202 | CARLA       | GUTIERREZ    |        8.99 |
+|         203 | TARA        | RYAN         |       10.99 |
+|         204 | ROSEMARY    | SCHMIDT      |       11.99 |
+|         205 | EILEEN      | CARR         |        7.99 |
+|         206 | TERRI       | VASQUEZ      |       10.99 |
+|         207 | GERTRUDE    | CASTILLO     |        9.99 |
+|         208 | LUCY        | WHEELER      |        6.99 |
+|         209 | TONYA       | CHAPMAN      |        9.99 |
+|         210 | ELLA        | OLIVER       |        8.99 |
+|         211 | STACEY      | MONTGOMERY   |        8.99 |
+|         212 | WILMA       | RICHARDS     |       10.99 |
+|         213 | GINA        | WILLIAMSON   |        8.99 |
+|         214 | KRISTIN     | JOHNSTON     |        9.99 |
+|         215 | JESSIE      | BANKS        |        8.99 |
+|         216 | NATALIE     | MEYER        |        8.99 |
+|         217 | AGNES       | BISHOP       |        8.99 |
+|         218 | VERA        | MCCOY        |        8.99 |
+|         219 | WILLIE      | HOWELL       |        7.99 |
+|         220 | CHARLENE    | ALVAREZ      |       10.99 |
+|         221 | BESSIE      | MORRISON     |       10.99 |
+|         222 | DELORES     | HANSEN       |        8.99 |
+|         223 | MELINDA     | FERNANDEZ    |        7.99 |
+|         224 | PEARL       | GARZA        |        7.99 |
+|         225 | ARLENE      | HARVEY       |        7.99 |
+|         226 | MAUREEN     | LITTLE       |        9.99 |
+|         227 | COLLEEN     | BURTON       |        7.99 |
+|         228 | ALLISON     | STANLEY      |        8.99 |
+|         229 | TAMARA      | NGUYEN       |        7.99 |
+|         230 | JOY         | GEORGE       |        9.99 |
+|         231 | GEORGIA     | JACOBS       |        9.99 |
+|         232 | CONSTANCE   | REID         |       10.99 |
+|         233 | LILLIE      | KIM          |        8.99 |
+|         234 | CLAUDIA     | FULLER       |        7.99 |
+|         235 | JACKIE      | LYNCH        |        6.99 |
+|         236 | MARCIA      | DEAN         |        8.99 |
+|         237 | TANYA       | GILBERT      |       11.99 |
+|         238 | NELLIE      | GARRETT      |        8.99 |
+|         239 | MINNIE      | ROMERO       |        8.99 |
+|         240 | MARLENE     | WELCH        |        8.99 |
+|         241 | HEIDI       | LARSON       |        7.99 |
+|         242 | GLENDA      | FRAZIER      |        9.99 |
+|         243 | LYDIA       | BURKE        |        5.99 |
+|         244 | VIOLA       | HANSON       |        9.99 |
+|         245 | COURTNEY    | DAY          |       10.99 |
+|         246 | MARIAN      | MENDOZA      |        8.99 |
+|         247 | STELLA      | MORENO       |        7.99 |
+|         248 | CAROLINE    | BOWMAN       |        7.99 |
+|         249 | DORA        | MEDINA       |        9.99 |
+|         250 | JO          | FOWLER       |        6.99 |
+|         251 | VICKIE      | BREWER       |        8.99 |
+|         252 | MATTIE      | HOFFMAN      |        5.99 |
+|         253 | TERRY       | CARLSON      |        7.99 |
+|         254 | MAXINE      | SILVA        |        7.99 |
+|         255 | IRMA        | PEARSON      |        8.99 |
+|         256 | MABEL       | HOLLAND      |        8.99 |
+|         257 | MARSHA      | DOUGLAS      |        7.99 |
+|         258 | MYRTLE      | FLEMING      |        9.99 |
+|         259 | LENA        | JENSEN       |       10.99 |
+|         260 | CHRISTY     | VARGAS       |       10.99 |
+|         261 | DEANNA      | BYRD         |        8.99 |
+|         262 | PATSY       | DAVIDSON     |        8.99 |
+|         263 | HILDA       | HOPKINS      |        9.99 |
+|         264 | GWENDOLYN   | MAY          |        8.99 |
+|         265 | JENNIE      | TERRY        |        9.99 |
+|         266 | NORA        | HERRERA      |        8.99 |
+|         267 | MARGIE      | WADE         |        9.99 |
+|         268 | NINA        | SOTO         |        7.99 |
+|         269 | CASSANDRA   | WALTERS      |        9.99 |
+|         270 | LEAH        | CURTIS       |        9.99 |
+|         271 | PENNY       | NEAL         |        8.99 |
+|         272 | KAY         | CALDWELL     |       10.99 |
+|         273 | PRISCILLA   | LOWE         |        8.99 |
+|         274 | NAOMI       | JENNINGS     |        9.99 |
+|         275 | CAROLE      | BARNETT      |        9.99 |
+|         276 | BRANDY      | GRAVES       |       10.99 |
+|         277 | OLGA        | JIMENEZ      |       10.99 |
+|         278 | BILLIE      | HORTON       |        8.99 |
+|         279 | DIANNE      | SHELTON      |        9.99 |
+|         280 | TRACEY      | BARRETT      |        9.99 |
+|         281 | LEONA       | OBRIEN       |        6.99 |
+|         282 | JENNY       | CASTRO       |        9.99 |
+|         283 | FELICIA     | SUTTON       |        7.99 |
+|         284 | SONIA       | GREGORY      |        8.99 |
+|         285 | MIRIAM      | MCKINNEY     |        9.99 |
+|         286 | VELMA       | LUCAS        |        9.99 |
+|         287 | BECKY       | MILES        |        9.99 |
+|         288 | BOBBIE      | CRAIG        |        9.99 |
+|         289 | VIOLET      | RODRIQUEZ    |       10.99 |
+|         290 | KRISTINA    | CHAMBERS     |        8.99 |
+|         291 | TONI        | HOLT         |        7.99 |
+|         292 | MISTY       | LAMBERT      |       10.99 |
+|         293 | MAE         | FLETCHER     |        9.99 |
+|         294 | SHELLY      | WATTS        |        7.99 |
+|         295 | DAISY       | BATES        |        9.99 |
+|         296 | RAMONA      | HALE         |        7.99 |
+|         297 | SHERRI      | RHODES       |       10.99 |
+|         298 | ERIKA       | PENA         |        8.99 |
+|         299 | JAMES       | GANNON       |        9.99 |
+|         300 | JOHN        | FARNSWORTH   |       10.99 |
+|         301 | ROBERT      | BAUGHMAN     |       10.99 |
+|         302 | MICHAEL     | SILVERMAN    |        8.99 |
+|         303 | WILLIAM     | SATTERFIELD  |        8.99 |
+|         304 | DAVID       | ROYAL        |       10.99 |
+|         305 | RICHARD     | MCCRARY      |       11.99 |
+|         306 | CHARLES     | KOWALSKI     |        7.99 |
+|         307 | JOSEPH      | JOY          |       10.99 |
+|         308 | THOMAS      | GRIGSBY      |        8.99 |
+|         309 | CHRISTOPHER | GRECO        |        9.99 |
+|         310 | DANIEL      | CABRAL       |       10.99 |
+|         311 | PAUL        | TROUT        |        9.99 |
+|         312 | MARK        | RINEHART     |        6.99 |
+|         313 | DONALD      | MAHON        |        7.99 |
+|         314 | GEORGE      | LINTON       |        6.99 |
+|         315 | KENNETH     | GOODEN       |        9.99 |
+|         316 | STEVEN      | CURLEY       |        8.99 |
+|         317 | EDWARD      | BAUGH        |        8.99 |
+|         318 | BRIAN       | WYMAN        |        9.99 |
+|         319 | RONALD      | WEINER       |        9.99 |
+|         320 | ANTHONY     | SCHWAB       |        7.99 |
+|         321 | KEVIN       | SCHULER      |        8.99 |
+|         322 | JASON       | MORRISSEY    |        9.99 |
+|         323 | MATTHEW     | MAHAN        |        7.99 |
+|         324 | GARY        | COY          |        8.99 |
+|         325 | TIMOTHY     | BUNN         |        9.99 |
+|         326 | JOSE        | ANDREW       |        7.99 |
+|         327 | LARRY       | THRASHER     |        9.99 |
+|         328 | JEFFREY     | SPEAR        |        7.99 |
+|         329 | FRANK       | WAGGONER     |        8.99 |
+|         330 | SCOTT       | SHELLEY      |        7.99 |
+|         331 | ERIC        | ROBERT       |       10.99 |
+|         332 | STEPHEN     | QUALLS       |        8.99 |
+|         333 | ANDREW      | PURDY        |       10.99 |
+|         334 | RAYMOND     | MCWHORTER    |        8.99 |
+|         335 | GREGORY     | MAULDIN      |        8.99 |
+|         336 | JOSHUA      | MARK         |       10.99 |
+|         337 | JERRY       | JORDON       |        8.99 |
+|         338 | DENNIS      | GILMAN       |        7.99 |
+|         339 | WALTER      | PERRYMAN     |        7.99 |
+|         340 | PATRICK     | NEWSOM       |        9.99 |
+|         341 | PETER       | MENARD       |        9.99 |
+|         342 | HAROLD      | MARTINO      |        8.99 |
+|         343 | DOUGLAS     | GRAF         |        9.99 |
+|         344 | HENRY       | BILLINGSLEY  |        5.99 |
+|         345 | CARL        | ARTIS        |       10.99 |
+|         346 | ARTHUR      | SIMPKINS     |        8.99 |
+|         347 | RYAN        | SALISBURY    |       10.99 |
+|         348 | ROGER       | QUINTANILLA  |        9.99 |
+|         349 | JOE         | GILLILAND    |        8.99 |
+|         350 | JUAN        | FRALEY       |        6.99 |
+|         351 | JACK        | FOUST        |        7.99 |
+|         352 | ALBERT      | CROUSE       |        7.99 |
+|         353 | JONATHAN    | SCARBOROUGH  |        7.99 |
+|         354 | JUSTIN      | NGO          |        8.99 |
+|         355 | TERRY       | GRISSOM      |        6.99 |
+|         356 | GERALD      | FULTZ        |        6.99 |
+|         357 | KEITH       | RICO         |        8.99 |
+|         358 | SAMUEL      | MARLOW       |        7.99 |
+|         359 | WILLIE      | MARKHAM      |        9.99 |
+|         360 | RALPH       | MADRIGAL     |        9.99 |
+|         361 | LAWRENCE    | LAWTON       |        6.99 |
+|         362 | NICHOLAS    | BARFIELD     |       11.99 |
+|         363 | ROY         | WHITING      |        9.99 |
+|         364 | BENJAMIN    | VARNEY       |       10.99 |
+|         365 | BRUCE       | SCHWARZ      |        8.99 |
+|         366 | BRANDON     | HUEY         |        6.99 |
+|         367 | ADAM        | GOOCH        |       10.99 |
+|         368 | HARRY       | ARCE         |        9.99 |
+|         369 | FRED        | WHEAT        |        7.99 |
+|         370 | WAYNE       | TRUONG       |        7.99 |
+|         371 | BILLY       | POULIN       |       10.99 |
+|         372 | STEVE       | MACKENZIE    |       10.99 |
+|         373 | LOUIS       | LEONE        |        8.99 |
+|         374 | JEREMY      | HURTADO      |        8.99 |
+|         375 | AARON       | SELBY        |        9.99 |
+|         376 | RANDY       | GAITHER      |        8.99 |
+|         377 | HOWARD      | FORTNER      |       10.99 |
+|         378 | EUGENE      | CULPEPPER    |        7.99 |
+|         379 | CARLOS      | COUGHLIN     |        8.99 |
+|         380 | RUSSELL     | BRINSON      |       10.99 |
+|         381 | BOBBY       | BOUDREAU     |        8.99 |
+|         382 | VICTOR      | BARKLEY      |        9.99 |
+|         383 | MARTIN      | BALES        |        8.99 |
+|         384 | ERNEST      | STEPP        |        9.99 |
+|         385 | PHILLIP     | HOLM         |        8.99 |
+|         386 | TODD        | TAN          |        8.99 |
+|         387 | JESSE       | SCHILLING    |        7.99 |
+|         388 | CRAIG       | MORRELL      |       10.99 |
+|         389 | ALAN        | KAHN         |        9.99 |
+|         390 | SHAWN       | HEATON       |        8.99 |
+|         391 | CLARENCE    | GAMEZ        |        7.99 |
+|         392 | SEAN        | DOUGLASS     |        9.99 |
+|         393 | PHILIP      | CAUSEY       |        8.99 |
+|         394 | CHRIS       | BROTHERS     |        9.99 |
+|         395 | JOHNNY      | TURPIN       |        7.99 |
+|         396 | EARL        | SHANKS       |        7.99 |
+|         397 | JIMMY       | SCHRADER     |        6.99 |
+|         398 | ANTONIO     | MEEK         |        9.99 |
+|         399 | DANNY       | ISOM         |        6.99 |
+|         400 | BRYAN       | HARDISON     |        6.99 |
+|         401 | TONY        | CARRANZA     |        8.99 |
+|         402 | LUIS        | YANEZ        |        7.99 |
+|         403 | MIKE        | WAY          |        9.99 |
+|         404 | STANLEY     | SCROGGINS    |       10.99 |
+|         405 | LEONARD     | SCHOFIELD    |        7.99 |
+|         406 | NATHAN      | RUNYON       |        8.99 |
+|         407 | DALE        | RATCLIFF     |        9.99 |
+|         408 | MANUEL      | MURRELL      |        7.99 |
+|         409 | RODNEY      | MOELLER      |        8.99 |
+|         410 | CURTIS      | IRBY         |       10.99 |
+|         411 | NORMAN      | CURRIER      |        7.99 |
+|         412 | ALLEN       | BUTTERFIELD  |        8.99 |
+|         413 | MARVIN      | YEE          |        7.99 |
+|         414 | VINCENT     | RALSTON      |       10.99 |
+|         415 | GLENN       | PULLEN       |        8.99 |
+|         416 | JEFFERY     | PINSON       |        8.99 |
+|         417 | TRAVIS      | ESTEP        |        9.99 |
+|         418 | JEFF        | EAST         |       10.99 |
+|         419 | CHAD        | CARBONE      |        7.99 |
+|         420 | JACOB       | LANCE        |       10.99 |
+|         421 | LEE         | HAWKS        |        9.99 |
+|         422 | MELVIN      | ELLINGTON    |        9.99 |
+|         423 | ALFRED      | CASILLAS     |        9.99 |
+|         424 | KYLE        | SPURLOCK     |        9.99 |
+|         425 | FRANCIS     | SIKES        |        8.99 |
+|         426 | BRADLEY     | MOTLEY       |       10.99 |
+|         427 | JESUS       | MCCARTNEY    |        7.99 |
+|         428 | HERBERT     | KRUGER       |        6.99 |
+|         429 | FREDERICK   | ISBELL       |        7.99 |
+|         430 | RAY         | HOULE        |        6.99 |
+|         431 | JOEL        | FRANCISCO    |        8.99 |
+|         432 | EDWIN       | BURK         |        8.99 |
+|         433 | DON         | BONE         |       10.99 |
+|         434 | EDDIE       | TOMLIN       |       10.99 |
+|         435 | RICKY       | SHELBY       |        8.99 |
+|         436 | TROY        | QUIGLEY      |        9.99 |
+|         437 | RANDALL     | NEUMANN      |        8.99 |
+|         438 | BARRY       | LOVELACE     |        8.99 |
+|         439 | ALEXANDER   | FENNELL      |        9.99 |
+|         440 | BERNARD     | COLBY        |        9.99 |
+|         441 | MARIO       | CHEATHAM     |       10.99 |
+|         442 | LEROY       | BUSTAMANTE   |        8.99 |
+|         443 | FRANCISCO   | SKIDMORE     |        9.99 |
+|         444 | MARCUS      | HIDALGO      |        8.99 |
+|         445 | MICHEAL     | FORMAN       |        9.99 |
+|         446 | THEODORE    | CULP         |        9.99 |
+|         447 | CLIFFORD    | BOWENS       |        8.99 |
+|         448 | MIGUEL      | BETANCOURT   |       10.99 |
+|         449 | OSCAR       | AQUINO       |        8.99 |
+|         450 | JAY         | ROBB         |        7.99 |
+|         451 | JIM         | REA          |        8.99 |
+|         452 | TOM         | MILNER       |        6.99 |
+|         453 | CALVIN      | MARTEL       |        8.99 |
+|         454 | ALEX        | GRESHAM      |        9.99 |
+|         455 | JON         | WILES        |        8.99 |
+|         456 | RONNIE      | RICKETTS     |        8.99 |
+|         457 | BILL        | GAVIN        |       10.99 |
+|         458 | LLOYD       | DOWD         |        7.99 |
+|         459 | TOMMY       | COLLAZO      |       10.99 |
+|         460 | LEON        | BOSTIC       |       10.99 |
+|         461 | DEREK       | BLAKELY      |        7.99 |
+|         462 | WARREN      | SHERROD      |        9.99 |
+|         463 | DARRELL     | POWER        |        7.99 |
+|         464 | JEROME      | KENYON       |        8.99 |
+|         465 | FLOYD       | GANDY        |        8.99 |
+|         466 | LEO         | EBERT        |        8.99 |
+|         467 | ALVIN       | DELOACH      |        9.99 |
+|         468 | TIM         | CARY         |       10.99 |
+|         469 | WESLEY      | BULL         |       10.99 |
+|         470 | GORDON      | ALLARD       |       10.99 |
+|         471 | DEAN        | SAUER        |        8.99 |
+|         472 | GREG        | ROBINS       |        8.99 |
+|         473 | JORGE       | OLIVARES     |        8.99 |
+|         474 | DUSTIN      | GILLETTE     |        8.99 |
+|         475 | PEDRO       | CHESTNUT     |        9.99 |
+|         476 | DERRICK     | BOURQUE      |        9.99 |
+|         477 | DAN         | PAINE        |       10.99 |
+|         478 | LEWIS       | LYMAN        |        8.99 |
+|         479 | ZACHARY     | HITE         |        8.99 |
+|         480 | COREY       | HAUSER       |        9.99 |
+|         481 | HERMAN      | DEVORE       |       10.99 |
+|         482 | MAURICE     | CRAWLEY      |        8.99 |
+|         483 | VERNON      | CHAPA        |        9.99 |
+|         484 | ROBERTO     | VU           |        9.99 |
+|         485 | CLYDE       | TOBIAS       |        8.99 |
+|         486 | GLEN        | TALBERT      |        8.99 |
+|         487 | HECTOR      | POINDEXTER   |        9.99 |
+|         488 | SHANE       | MILLARD      |        8.99 |
+|         489 | RICARDO     | MEADOR       |        9.99 |
+|         490 | SAM         | MCDUFFIE     |        8.99 |
+|         491 | RICK        | MATTOX       |        8.99 |
+|         492 | LESTER      | KRAUS        |        9.99 |
+|         493 | BRENT       | HARKINS      |        7.99 |
+|         494 | RAMON       | CHOATE       |        9.99 |
+|         495 | CHARLIE     | BESS         |        9.99 |
+|         496 | TYLER       | WREN         |        7.99 |
+|         497 | GILBERT     | SLEDGE       |        9.99 |
+|         498 | GENE        | SANBORN      |        8.99 |
+|         499 | MARC        | OUTLAW       |        8.99 |
+|         500 | REGINALD    | KINDER       |        8.99 |
+|         501 | RUBEN       | GEARY        |        7.99 |
+|         502 | BRETT       | CORNWELL     |        9.99 |
+|         503 | ANGEL       | BARCLAY      |        6.99 |
+|         504 | NATHANIEL   | ADAM         |        9.99 |
+|         505 | RAFAEL      | ABNEY        |        9.99 |
+|         506 | LESLIE      | SEWARD       |        9.99 |
+|         507 | EDGAR       | RHOADS       |        6.99 |
+|         508 | MILTON      | HOWLAND      |        9.99 |
+|         509 | RAUL        | FORTIER      |        8.99 |
+|         510 | BEN         | EASTER       |        9.99 |
+|         511 | CHESTER     | BENNER       |       10.99 |
+|         512 | CECIL       | VINES        |        9.99 |
+|         513 | DUANE       | TUBBS        |        9.99 |
+|         514 | FRANKLIN    | TROUTMAN     |        5.99 |
+|         515 | ANDRE       | RAPP         |        8.99 |
+|         516 | ELMER       | NOE          |       10.99 |
+|         517 | BRAD        | MCCURDY      |        8.99 |
+|         518 | GABRIEL     | HARDER       |        7.99 |
+|         519 | RON         | DELUCA       |        8.99 |
+|         520 | MITCHELL    | WESTMORELAND |       10.99 |
+|         521 | ROLAND      | SOUTH        |        7.99 |
+|         522 | ARNOLD      | HAVENS       |        9.99 |
+|         523 | HARVEY      | GUAJARDO     |        8.99 |
+|         524 | JARED       | ELY          |        8.99 |
+|         525 | ADRIAN      | CLARY        |        7.99 |
+|         526 | KARL        | SEAL         |       10.99 |
+|         527 | CORY        | MEEHAN       |        8.99 |
+|         528 | CLAUDE      | HERZOG       |        9.99 |
+|         529 | ERIK        | GUILLEN      |       10.99 |
+|         530 | DARRYL      | ASHCRAFT     |        5.99 |
+|         531 | JAMIE       | WAUGH        |       10.99 |
+|         532 | NEIL        | RENNER       |        8.99 |
+|         533 | JESSIE      | MILAM        |        9.99 |
+|         534 | CHRISTIAN   | JUNG         |        6.99 |
+|         535 | JAVIER      | ELROD        |        8.99 |
+|         536 | FERNANDO    | CHURCHILL    |        8.99 |
+|         537 | CLINTON     | BUFORD       |        8.99 |
+|         538 | TED         | BREAUX       |        8.99 |
+|         539 | MATHEW      | BOLIN        |        7.99 |
+|         540 | TYRONE      | ASHER        |        8.99 |
+|         541 | DARREN      | WINDHAM      |        8.99 |
+|         542 | LONNIE      | TIRADO       |       10.99 |
+|         543 | LANCE       | PEMBERTON    |        9.99 |
+|         544 | CODY        | NOLEN        |       10.99 |
+|         545 | JULIO       | NOLAND       |       10.99 |
+|         546 | KELLY       | KNOTT        |        9.99 |
+|         547 | KURT        | EMMONS       |        9.99 |
+|         548 | ALLAN       | CORNISH      |        7.99 |
+|         549 | NELSON      | CHRISTENSON  |        9.99 |
+|         550 | GUY         | BROWNLEE     |       10.99 |
+|         551 | CLAYTON     | BARBEE       |        9.99 |
+|         552 | HUGH        | WALDROP      |        8.99 |
+|         553 | MAX         | PITT         |        8.99 |
+|         554 | DWAYNE      | OLVERA       |        9.99 |
+|         555 | DWIGHT      | LOMBARDI     |        7.99 |
+|         556 | ARMANDO     | GRUBER       |        6.99 |
+|         557 | FELIX       | GAFFNEY      |        6.99 |
+|         558 | JIMMIE      | EGGLESTON    |       10.99 |
+|         559 | EVERETT     | BANDA        |        8.99 |
+|         560 | JORDAN      | ARCHULETA    |        9.99 |
+|         561 | IAN         | STILL        |       10.99 |
+|         562 | WALLACE     | SLONE        |       10.99 |
+|         563 | KEN         | PREWITT      |        9.99 |
+|         564 | BOB         | PFEIFFER     |       10.99 |
+|         565 | JAIME       | NETTLES      |       10.99 |
+|         566 | CASEY       | MENA         |        9.99 |
+|         567 | ALFREDO     | MCADAMS      |       10.99 |
+|         568 | ALBERTO     | HENNING      |        6.99 |
+|         569 | DAVE        | GARDINER     |        9.99 |
+|         570 | IVAN        | CROMWELL     |        7.99 |
+|         571 | JOHNNIE     | CHISHOLM     |       10.99 |
+|         572 | SIDNEY      | BURLESON     |       10.99 |
+|         573 | BYRON       | BOX          |       10.99 |
+|         574 | JULIAN      | VEST         |        7.99 |
+|         575 | ISAAC       | OGLESBY      |        8.99 |
+|         576 | MORRIS      | MCCARTER     |        8.99 |
+|         577 | CLIFTON     | MALCOLM      |        8.99 |
+|         578 | WILLARD     | LUMPKIN      |        7.99 |
+|         579 | DARYL       | LARUE        |        9.99 |
+|         580 | ROSS        | GREY         |        8.99 |
+|         581 | VIRGIL      | WOFFORD      |        8.99 |
+|         582 | ANDY        | VANHORN      |        9.99 |
+|         583 | MARSHALL    | THORN        |        9.99 |
+|         584 | SALVADOR    | TEEL         |        8.99 |
+|         585 | PERRY       | SWAFFORD     |        9.99 |
+|         586 | KIRK        | STCLAIR      |        8.99 |
+|         587 | SERGIO      | STANFIELD    |        8.99 |
+|         588 | MARION      | OCAMPO       |        7.99 |
+|         589 | TRACY       | HERRMANN     |        9.99 |
+|         590 | SETH        | HANNON       |        9.99 |
+|         591 | KENT        | ARSENAULT    |       11.99 |
+|         592 | TERRANCE    | ROUSH        |       11.99 |
+|         593 | RENE        | MCALISTER    |        8.99 |
+|         594 | EDUARDO     | HIATT        |        8.99 |
+|         595 | TERRENCE    | GUNDERSON    |       10.99 |
+|         596 | ENRIQUE     | FORSYTHE     |        6.99 |
+|         597 | FREDDIE     | DUGGAN       |        8.99 |
+|         598 | WADE        | DELVALLE     |        7.99 |
+|         599 | AUSTIN      | CINTRON      |        9.99 |
++-------------+-------------+--------------+-------------+
+599 rows in set (0.0524 sec)
+ MySQL  localhost  sakila  SQL > 
