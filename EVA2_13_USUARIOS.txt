@@ -1,0 +1,414 @@
+Last login: Wed Apr  9 15:59:03 on ttys000
+/Users/Gerardo/.zshrc:export:1: not valid in this context: export HOMEBREW_PREFIX
+Gerardo@luiss-mac ~ % mysqlsh
+MySQL Shell 9.2.0
+
+Copyright (c) 2016, 2025, Oracle and/or its affiliates.
+Oracle is a registered trademark of Oracle Corporation and/or its affiliates.
+Other names may be trademarks of their respective owners.
+
+Type '\help' or '\?' for help; '\quit' to exit.
+ MySQL  SQL > \connect --mc root@localhost
+Creating a Classic session to 'root@localhost'
+Fetching global names for auto-completion... Press ^C to stop.
+Your MySQL connection id is 17
+Server version: 9.1.0 MySQL Community Server - GPL
+No default schema selected; type \use <schema> to set one.
+ MySQL  localhost  SQL > show databases;
++--------------------+
+| Database           |
++--------------------+
+| Employees          |
+| HumanResourcesDB   |
+| information_schema |
+| mysql              |
+| Northwind          |
+| performance_schema |
+| sakila             |
+| sys                |
+| tbd_eva1           |
+| tbd_eva2           |
+| World              |
++--------------------+
+11 rows in set (0.0028 sec)
+ MySQL  localhost  SQL > use mysql;
+Default schema set to `mysql`.
+Fetching global names, object names from `mysql` for auto-completion... Press ^C to stop.
+ MySQL  localhost  mysql  SQL > show tables;
++------------------------------------------------------+
+| Tables_in_mysql                                      |
++------------------------------------------------------+
+| columns_priv                                         |
+| component                                            |
+| db                                                   |
+| default_roles                                        |
+| engine_cost                                          |
+| func                                                 |
+| general_log                                          |
+| global_grants                                        |
+| gtid_executed                                        |
+| help_category                                        |
+| help_keyword                                         |
+| help_relation                                        |
+| help_topic                                           |
+| innodb_index_stats                                   |
+| innodb_table_stats                                   |
+| ndb_binlog_index                                     |
+| password_history                                     |
+| plugin                                               |
+| procs_priv                                           |
+| proxies_priv                                         |
+| replication_asynchronous_connection_failover         |
+| replication_asynchronous_connection_failover_managed |
+| replication_group_configuration_version              |
+| replication_group_member_actions                     |
+| role_edges                                           |
+| server_cost                                          |
+| servers                                              |
+| slave_master_info                                    |
+| slave_relay_log_info                                 |
+| slave_worker_info                                    |
+| slow_log                                             |
+| tables_priv                                          |
+| time_zone                                            |
+| time_zone_leap_second                                |
+| time_zone_name                                       |
+| time_zone_transition                                 |
+| time_zone_transition_type                            |
+| user                                                 |
++------------------------------------------------------+
+38 rows in set (0.0029 sec)
+ MySQL  localhost  mysql  SQL > desc user;
++--------------------------+-----------------------------------+------+-----+-----------------------+-------+
+| Field                    | Type                              | Null | Key | Default               | Extra |
++--------------------------+-----------------------------------+------+-----+-----------------------+-------+
+| Host                     | char(255)                         | NO   | PRI |                       |       |
+| User                     | char(32)                          | NO   | PRI |                       |       |
+| Select_priv              | enum('N','Y')                     | NO   |     | N                     |       |
+| Insert_priv              | enum('N','Y')                     | NO   |     | N                     |       |
+| Update_priv              | enum('N','Y')                     | NO   |     | N                     |       |
+| Delete_priv              | enum('N','Y')                     | NO   |     | N                     |       |
+| Create_priv              | enum('N','Y')                     | NO   |     | N                     |       |
+| Drop_priv                | enum('N','Y')                     | NO   |     | N                     |       |
+| Reload_priv              | enum('N','Y')                     | NO   |     | N                     |       |
+| Shutdown_priv            | enum('N','Y')                     | NO   |     | N                     |       |
+| Process_priv             | enum('N','Y')                     | NO   |     | N                     |       |
+| File_priv                | enum('N','Y')                     | NO   |     | N                     |       |
+| Grant_priv               | enum('N','Y')                     | NO   |     | N                     |       |
+| References_priv          | enum('N','Y')                     | NO   |     | N                     |       |
+| Index_priv               | enum('N','Y')                     | NO   |     | N                     |       |
+| Alter_priv               | enum('N','Y')                     | NO   |     | N                     |       |
+| Show_db_priv             | enum('N','Y')                     | NO   |     | N                     |       |
+| Super_priv               | enum('N','Y')                     | NO   |     | N                     |       |
+| Create_tmp_table_priv    | enum('N','Y')                     | NO   |     | N                     |       |
+| Lock_tables_priv         | enum('N','Y')                     | NO   |     | N                     |       |
+| Execute_priv             | enum('N','Y')                     | NO   |     | N                     |       |
+| Repl_slave_priv          | enum('N','Y')                     | NO   |     | N                     |       |
+| Repl_client_priv         | enum('N','Y')                     | NO   |     | N                     |       |
+| Create_view_priv         | enum('N','Y')                     | NO   |     | N                     |       |
+| Show_view_priv           | enum('N','Y')                     | NO   |     | N                     |       |
+| Create_routine_priv      | enum('N','Y')                     | NO   |     | N                     |       |
+| Alter_routine_priv       | enum('N','Y')                     | NO   |     | N                     |       |
+| Create_user_priv         | enum('N','Y')                     | NO   |     | N                     |       |
+| Event_priv               | enum('N','Y')                     | NO   |     | N                     |       |
+| Trigger_priv             | enum('N','Y')                     | NO   |     | N                     |       |
+| Create_tablespace_priv   | enum('N','Y')                     | NO   |     | N                     |       |
+| ssl_type                 | enum('','ANY','X509','SPECIFIED') | NO   |     |                       |       |
+| ssl_cipher               | blob                              | NO   |     | NULL                  |       |
+| x509_issuer              | blob                              | NO   |     | NULL                  |       |
+| x509_subject             | blob                              | NO   |     | NULL                  |       |
+| max_questions            | int unsigned                      | NO   |     | 0                     |       |
+| max_updates              | int unsigned                      | NO   |     | 0                     |       |
+| max_connections          | int unsigned                      | NO   |     | 0                     |       |
+| max_user_connections     | int unsigned                      | NO   |     | 0                     |       |
+| plugin                   | char(64)                          | NO   |     | caching_sha2_password |       |
+| authentication_string    | text                              | YES  |     | NULL                  |       |
+| password_expired         | enum('N','Y')                     | NO   |     | N                     |       |
+| password_last_changed    | timestamp                         | YES  |     | NULL                  |       |
+| password_lifetime        | smallint unsigned                 | YES  |     | NULL                  |       |
+| account_locked           | enum('N','Y')                     | NO   |     | N                     |       |
+| Create_role_priv         | enum('N','Y')                     | NO   |     | N                     |       |
+| Drop_role_priv           | enum('N','Y')                     | NO   |     | N                     |       |
+| Password_reuse_history   | smallint unsigned                 | YES  |     | NULL                  |       |
+| Password_reuse_time      | smallint unsigned                 | YES  |     | NULL                  |       |
+| Password_require_current | enum('N','Y')                     | YES  |     | NULL                  |       |
+| User_attributes          | json                              | YES  |     | NULL                  |       |
++--------------------------+-----------------------------------+------+-----+-----------------------+-------+
+51 rows in set (0.0077 sec)
+ MySQL  localhost  mysql  SQL > select user, host from user;
++------------------+-----------+
+| user             | host      |
++------------------+-----------+
+| admin_hr         | localhost |
+| analyst_hr       | localhost |
+| intern_hr        | localhost |
+| manager_hr       | localhost |
+| mysql.infoschema | localhost |
+| mysql.session    | localhost |
+| mysql.sys        | localhost |
+| root             | localhost |
+| staff_hr         | localhost |
++------------------+-----------+
+9 rows in set (0.0008 sec)
+ MySQL  localhost  mysql  SQL > select count(*) from user;
++----------+
+| count(*) |
++----------+
+|        9 |
++----------+
+1 row in set (0.0113 sec)
+ MySQL  localhost  mysql  SQL > create user 'prueba'@'localhost'
+                             -> identified by '1234';
+Query OK, 0 rows affected (0.0642 sec)
+ MySQL  localhost  mysql  SQL > \connect --mc prueba@localhost
+Creating a Classic session to 'prueba@localhost'
+Please provide the password for 'prueba@localhost': 
+Save password for 'prueba@localhost'? [Y]es/[N]o/Ne[v]er (default No): n
+Fetching global names for auto-completion... Press ^C to stop.
+Error during auto-completion cache update: Access denied; you need (at least one of) the PROCESS privilege(s) for this operation
+Closing old connection...
+Your MySQL connection id is 18
+Server version: 9.1.0 MySQL Community Server - GPL
+No default schema selected; type \use <schema> to set one.
+ MySQL  localhost  SQL > show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| performance_schema |
++--------------------+
+2 rows in set (0.0047 sec)
+ MySQL  localhost  SQL > create database mibasedatos;
+ERROR: 1044 (42000): Access denied for user 'prueba'@'localhost' to database 'mibasedatos'
+ MySQL  localhost  SQL > drop database information_schema;
+ERROR: 1044 (42000): Access denied for user 'prueba'@'localhost' to database 'information_schema'
+ MySQL  localhost  SQL > \connect --mc root@localhost
+Creating a Classic session to 'root@localhost'
+Fetching global names for auto-completion... Press ^C to stop.
+Closing old connection...
+Your MySQL connection id is 19
+Server version: 9.1.0 MySQL Community Server - GPL
+No default schema selected; type \use <schema> to set one.
+ MySQL  localhost  SQL > drop user 'prueba'@'localhost;
+                      '> ';
+ERROR: 1396 (HY000): Operation DROP USER failed for 'prueba'@'localhost;'
+ MySQL  localhost  SQL > drop user 'prueba'@'localhost';
+Query OK, 0 rows affected (0.0080 sec)
+ MySQL  localhost  SQL > create user 'prueba'@'localhost' identified by '1234';
+Query OK, 0 rows affected (0.0109 sec)
+ MySQL  localhost  SQL > use mysql;
+Default schema set to `mysql`.
+Fetching global names, object names from `mysql` for auto-completion... Press ^C to stop.
+ MySQL  localhost  mysql  SQL > show tables;
++------------------------------------------------------+
+| Tables_in_mysql                                      |
++------------------------------------------------------+
+| columns_priv                                         |
+| component                                            |
+| db                                                   |
+| default_roles                                        |
+| engine_cost                                          |
+| func                                                 |
+| general_log                                          |
+| global_grants                                        |
+| gtid_executed                                        |
+| help_category                                        |
+| help_keyword                                         |
+| help_relation                                        |
+| help_topic                                           |
+| innodb_index_stats                                   |
+| innodb_table_stats                                   |
+| ndb_binlog_index                                     |
+| password_history                                     |
+| plugin                                               |
+| procs_priv                                           |
+| proxies_priv                                         |
+| replication_asynchronous_connection_failover         |
+| replication_asynchronous_connection_failover_managed |
+| replication_group_configuration_version              |
+| replication_group_member_actions                     |
+| role_edges                                           |
+| server_cost                                          |
+| servers                                              |
+| slave_master_info                                    |
+| slave_relay_log_info                                 |
+| slave_worker_info                                    |
+| slow_log                                             |
+| tables_priv                                          |
+| time_zone                                            |
+| time_zone_leap_second                                |
+| time_zone_name                                       |
+| time_zone_transition                                 |
+| time_zone_transition_type                            |
+| user                                                 |
++------------------------------------------------------+
+38 rows in set (0.0054 sec)
+ MySQL  localhost  mysql  SQL > select host, user from user;
++-----------+------------------+
+| host      | user             |
++-----------+------------------+
+| localhost | admin_hr         |
+| localhost | analyst_hr       |
+| localhost | intern_hr        |
+| localhost | manager_hr       |
+| localhost | mysql.infoschema |
+| localhost | mysql.session    |
+| localhost | mysql.sys        |
+| localhost | prueba           |
+| localhost | root             |
+| localhost | staff_hr         |
++-----------+------------------+
+10 rows in set (0.0008 sec)
+ MySQL  localhost  mysql  SQL > select * from user;
++-----------+------------------+-------------+-------------+-------------+-------------+-------------+-----------+-------------+---------------+--------------+-----------+------------+-----------------+------------+------------+--------------+------------+-----------------------+------------------+--------------+-----------------+------------------+------------------+----------------+---------------------+--------------------+------------------+------------+--------------+------------------------+----------+------------+-------------+--------------+---------------+-------------+-----------------+----------------------+-----------------------+------------------------------------------------------------------------+------------------+-----------------------+-------------------+----------------+------------------+----------------+------------------------+---------------------+--------------------------+-----------------+
+| Host      | User             | Select_priv | Insert_priv | Update_priv | Delete_priv | Create_priv | Drop_priv | Reload_priv | Shutdown_priv | Process_priv | File_priv | Grant_priv | References_priv | Index_priv | Alter_priv | Show_db_priv | Super_priv | Create_tmp_table_priv | Lock_tables_priv | Execute_priv | Repl_slave_priv | Repl_client_priv | Create_view_priv | Show_view_priv | Create_routine_priv | Alter_routine_priv | Create_user_priv | Event_priv | Trigger_priv | Create_tablespace_priv | ssl_type | ssl_cipher | x509_issuer | x509_subject | max_questions | max_updates | max_connections | max_user_connections | plugin                | authentication_string                                                  | password_expired | password_last_changed | password_lifetime | account_locked | Create_role_priv | Drop_role_priv | Password_reuse_history | Password_reuse_time | Password_require_current | User_attributes |
++-----------+------------------+-------------+-------------+-------------+-------------+-------------+-----------+-------------+---------------+--------------+-----------+------------+-----------------+------------+------------+--------------+------------+-----------------------+------------------+--------------+-----------------+------------------+------------------+----------------+---------------------+--------------------+------------------+------------+--------------+------------------------+----------+------------+-------------+--------------+---------------+-------------+-----------------+----------------------+-----------------------+------------------------------------------------------------------------+------------------+-----------------------+-------------------+----------------+------------------+----------------+------------------------+---------------------+--------------------------+-----------------+
+| localhost | admin_hr         | N           | N           | N           | N           | N           | N         | N           | N             | N            | N         | N          | N               | N          | N          | N            | N          | N                     | N                | N            | N               | N                | N                | N              | N                   | N                  | N                | N          | N            | N                      |          | 0x         | 0x          | 0x           |             0 |           0 |               0 |                    0 | caching_sha2_password | $A$005$T:jC_D0c[bj0d)8LGQIW1NCF9.mQjf/Xz403MClJ0qCkli6FhPyb4YntsK1 | N                | 2025-03-02 20:41:53   |              NULL | N              | N                | N              |                   NULL |                NULL | NULL                     | NULL            |
+| localhost | analyst_hr       | N           | N           | N           | N           | N           | N         | N           | N             | N            | N         | N          | N               | N          | N          | N            | N          | N                     | N                | N            | N               | N                | N                | N              | N                   | N                  | N                | N          | N            | N                      |          | 0x         | 0x          | 0x           |             0 |           0 |               0 |                    0 | caching_sha2_password | $A$005$~V:>3zUz-laT>6CoGd4FLnO5CwWihQHifwk4e61UY6Y79J9ErRok.4dEC | N                | 2025-03-02 20:41:53   |              NULL | N              | N                | N              |                   NULL |                NULL | NULL                     | NULL            |
+| localhost | intern_hr        | N           | N           | N           | N           | N           | N         | N           | N             | N            | N         | N          | N               | N          | N          | N            | N          | N                     | N                | N            | N               | N                | N                | N              | N                   | N                  | N                | N          | N            | N                      |          | 0x         | 0x          | 0x           |             0 |           0 |               0 |                    0 | caching_sha2_password | $A$005$kICg{cj|ZiHTP\
+                                                        4Z
+dMK..IIZK4Pq2eGXvPY0MGMOFx5YIZFT8jlDrbTX9X4 | N                | 2025-03-02 20:41:53   |              NULL | N              | N                | N              |                   NULL |                NULL | NULL                     | NULL            |
+| localhost | manager_hr       | N           | N           | N           | N           | N           | N         | N           | N             | N            | N         | N          | N               | N          | N          | N            | N          | N                     | N                | N            | N               | N                | N                | N              | N                   | N                  | N                | N          | N            | N                      |          | 0x         | 0x          | 0x           |             0 |           0 |               0 |                    0 | caching_sha2_password | $A$005$0XKH'gYDR&@8"1r'>AVKo9oakWoBJ0zdCELxf0Omh9.83X/Ah9lNQI4j.JM2 | N                | 2025-03-02 20:41:53   |              NULL | N              | N                | N              |                   NULL |                NULL | NULL                     | NULL            |
+| localhost | mysql.infoschema | Y           | N           | N           | N           | N           | N         | N           | N             | N            | N         | N          | N               | N          | N          | N            | N          | N                     | N                | N            | N               | N                | N                | N              | N                   | N                  | N                | N          | N            | N                      |          | 0x         | 0x          | 0x           |             0 |           0 |               0 |                    0 | caching_sha2_password | $A$005$THISISACOMBINATIONOFINVALIDSALTANDPASSWORDTHATMUSTNEVERBRBEUSED | N                | 2025-01-29 17:03:08   |              NULL | Y              | N                | N              |                   NULL |                NULL | NULL                     | NULL            |
+| localhost | mysql.session    | N           | N           | N           | N           | N           | N         | N           | Y             | N            | N         | N          | N               | N          | N          | N            | Y          | N                     | N                | N            | N               | N                | N                | N              | N                   | N                  | N                | N          | N            | N                      |          | 0x         | 0x          | 0x           |             0 |           0 |               0 |                    0 | caching_sha2_password | $A$005$THISISACOMBINATIONOFINVALIDSALTANDPASSWORDTHATMUSTNEVERBRBEUSED | N                | 2025-01-29 17:03:08   |              NULL | Y              | N                | N              |                   NULL |                NULL | NULL                     | NULL            |
+| localhost | mysql.sys        | N           | N           | N           | N           | N           | N         | N           | N             | N            | N         | N          | N               | N          | N          | N            | N          | N                     | N                | N            | N               | N                | N                | N              | N                   | N                  | N                | N          | N            | N                      |          | 0x         | 0x          | 0x           |             0 |           0 |               0 |                    0 | caching_sha2_password | $A$005$THISISACOMBINATIONOFINVALIDSALTANDPASSWORDTHATMUSTNEVERBRBEUSED | N                | 2025-01-29 17:03:08   |              NULL | Y              | N                | N              |                   NULL |                NULL | NULL                     | NULL            |
+| localhost | prueba           | N           | N           | N           | N           | N           | N         | N           | N             | N            | N         | N          | N               | N          | N          | N            | N          | N                     | N                | N            | N               | N                | N                | N              | N                   | N                  | N                | N          | N            | N                      |          | 0x         | 0x          | 0x           |             0 |           0 |               0 |                    0 | caching_sha2_password | $A$005$
+w4o\Y
+)NFRV`}!NKuB0Y.oielnO6YyD0RwKEhO1lh9H6mpl7VqdsKFymB | N                | 2025-04-09 16:28:57   |              NULL | N              | N                | N              |                   NULL |                NULL | NULL                     | NULL            |
+| localhost | root             | Y           | Y           | Y           | Y           | Y           | Y         | Y           | Y             | Y            | Y         | Y          | Y               | Y          | Y          | Y            | Y          | Y                     | Y                | Y            | Y               | Y                | Y                | Y              | Y                   | Y                  | Y                | Y          | Y            | Y                      |          | 0x         | 0x          | 0x           |             0 |           0 |               0 |                    0 | caching_sha2_password | $A$005$j= d&'plx
+                                                   Im.S%hLXG/ieDBYNjCQSm03DY2Qe1ZHKBNXqLnLXE4pynKm5 | N                | 2025-01-29 17:03:10   |              NULL | N              | Y                | Y              |                   NULL |                NULL | NULL                     | NULL            |
+| localhost | staff_hr         | N           | N           | N           | N           | N           | N         | N           | N             | N            | N         | N          | N               | N          | N          | N            | N          | N                     | N                | N            | N               | N                | N                | N              | N                   | N                  | N                | N          | N            | N                      |          | 0x         | 0x          | 0x           |             0 |           0 |               0 |             s      0G>lk3v1Clhd6QK1lrUmliuFdNTr2XbDx3xvCpReTwa/i1 | N                | 2025-03-02 20:41:53   |              NULL | N              | N                | N              |                   NULL |                NULL | NULL                     | NULL            |
++-----------+------------------+-------------+-------------+-------------+-------------+-------------+-----------+-------------+---------------+--------------+-----------+------------+-----------------+------------+------------+--------------+------------+-----------------------+------------------+--------------+-----------------+------------------+------------------+----------------+---------------------+--------------------+------------------+------------+--------------+------------------------+----------+------------+-------------+--------------+---------------+-------------+-----------------+----------------------+-----------------------+------------------------------------------------------------------------+------------------+-----------------------+-------------------+----------------+------------------+----------------+------------------------+---------------------+--------------------------+-----------------+
+10 rows in set (0.0012 sec)
+ MySQL  localhost  mysql  SQL > grant all on *.* to 'prueba'@'localhost';
+Query OK, 0 rows affected (0.0596 sec)
+ MySQL  localhost  mysql  SQL > \connect --mc prueba@localhost
+Creating a Classic session to 'prueba@localhost'
+Please provide the password for 'prueba@localhost': 
+Save password for 'prueba@localhost'? [Y]es/[N]o/Ne[v]er (default No): n
+Fetching global names for auto-completion... Press ^C to stop.
+Closing old connection...
+Your MySQL connection id is 20
+Server version: 9.1.0 MySQL Community Server - GPL
+No default schema selected; type \use <schema> to set one.
+ MySQL  localhost  SQL > show databases;
++--------------------+
+| Database           |
++--------------------+
+| Employees          |
+| HumanResourcesDB   |
+| information_schema |
+| mysql              |
+| Northwind          |
+| performance_schema |
+| sakila             |
+| sys                |
+| tbd_eva1           |
+| tbd_eva2           |
+| World              |
++--------------------+
+11 rows in set (0.0026 sec)
+ MySQL  localhost  SQL > create database prueba;
+Query OK, 1 row affected (0.0075 sec)
+ MySQL  localhost  SQL > create user 'prueba2'@'localhost' identified by '1234';
+Query OK, 0 rows affected (0.0720 sec)
+ MySQL  localhost  SQL > grant all on tbd_eva1.* to 'prueba2'@'localhost'; 
+ERROR: 1044 (42000): Access denied for user 'prueba'@'localhost' to database 'tbd_eva1'
+ MySQL  localhost  SQL > \c --mc root@localhost
+Creating a Classic session to 'root@localhost'
+Fetching global names for auto-completion... Press ^C to stop.
+Closing old connection...
+Your MySQL connection id is 21
+Server version: 9.1.0 MySQL Community Server - GPL
+No default schema selected; type \use <schema> to set one.
+ MySQL  localhost  SQL > grant all on tbd_eva1.* to 'prueba2'@'localhost';
+Query OK, 0 rows affected (0.0050 sec)
+ MySQL  localhost  SQL > \connect --mc prueba2@localhost
+Creating a Classic session to 'prueba2@localhost'
+Please provide the password for 'prueba2@localhost': 
+Save password for 'prueba2@localhost'? [Y]es/[N]o/Ne[v]er (default No): n
+Fetching global names for auto-completion... Press ^C to stop.
+Error during auto-completion cache update: Access denied; you need (at least one of) the PROCESS privilege(s) for this operation
+Closing old connection...
+Your MySQL connection id is 22
+Server version: 9.1.0 MySQL Community Server - GPL
+No default schema selected; type \use <schema> to set one.
+ MySQL  localhost  SQL > show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| performance_schema |
+| tbd_eva1           |
++--------------------+
+3 rows in set (0.0041 sec)
+ MySQL  localhost  SQL > use tbd_eva1;
+Default schema set to `tbd_eva1`.
+Fetching global names, object names from `tbd_eva1` for auto-completion... Press ^C to stop.
+ MySQL  localhost  tbd_eva1  SQL > show tables;
++--------------------+
+| Tables_in_tbd_eva1 |
++--------------------+
+| actor              |
+| ciudad             |
+| cliente            |
+| country            |
+| Customers          |
+| datos              |
+| EmployeeJobs       |
+| Employees          |
+| fn1                |
+| Jobs               |
+| Orders             |
+| paises             |
+| persona            |
+| producto           |
+| Professors         |
+| prueba             |
+| Relation           |
+| shirts             |
+| Students           |
+| vehiculo           |
++--------------------+
+20 rows in set (0.0030 sec)
+ MySQL  localhost  tbd_eva1  SQL > \c --mc root@localhost
+Creating a Classic session to 'root@localhost'
+Fetching global names for auto-completion... Press ^C to stop.
+Closing old connection...
+Your MySQL connection id is 23
+Server version: 9.1.0 MySQL Community Server - GPL
+No default schema selected; type \use <schema> to set one.
+ MySQL  localhost  SQL > create user 'prueba3'@'localhost' identified by '1234';
+Query OK, 0 rows affected (0.0096 sec)
+ MySQL  localhost  SQL > grant all on tbd_eva1.vehiculo to 'prueba3'@'localhost';
+Query OK, 0 rows affected (0.0034 sec)
+ MySQL  localhost  SQL > \connect --mc prueba3@localhost
+Creating a Classic session to 'prueba3@localhost'
+Please provide the password for 'prueba3@localhost': 
+Save password for 'prueba3@localhost'? [Y]es/[N]o/Ne[v]er (default No): n
+Fetching global names for auto-completion... Press ^C to stop.
+Error during auto-completion cache update: Access denied; you need (at least one of) the PROCESS privilege(s) for this operation
+Closing old connection...
+Your MySQL connection id is 24
+Server version: 9.1.0 MySQL Community Server - GPL
+No default schema selected; type \use <schema> to set one.
+ MySQL  localhost  SQL > show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| performance_schema |
+| tbd_eva1           |
++--------------------+
+3 rows in set (0.0016 sec)
+ MySQL  localhost  SQL > use tbd_eva1;
+Default schema set to `tbd_eva1`.
+Fetching global names, object names from `tbd_eva1` for auto-completion... Press ^C to stop.
+ MySQL  localhost  tbd_eva1  SQL > show tables;
++--------------------+
+| Tables_in_tbd_eva1 |
++--------------------+
+| vehiculo           |
++--------------------+
+1 row in set (0.0027 sec)
+ MySQL  localhost  tbd_eva1  SQL > 
