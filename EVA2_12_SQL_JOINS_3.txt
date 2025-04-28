@@ -1,0 +1,153 @@
+
+mysql  localhost:3306 ssl  SQL > use nortwind;
+ERROR: 1049 (42000): Unknown database 'nortwind'
+mysql  localhost:3306 ssl  SQL > use northwind;
+Default schema set to `northwind`.
+
+mysql  localhost:3306 ssl  northwind  SQL > shwo tables;
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual...
+mysql  localhost:3306 ssl  northwind  SQL > show tables;
++----------------------+
+| tables_in_northwind  |
++----------------------+
+| Categories           |
+...
+
+mysql  localhost:3306 ssl  northwind  SQL > desc products;
++-----------------+---------------+------+-----+---------+----------------+
+| field           | type          | null | key | default | extra          |
++-----------------+---------------+------+-----+---------+----------------+
+...
+
+mysql  localhost:3306 ssl  northwind  SQL > select * form products;
+ERROR: 1064 (42000): You have an error in your SQL syntax...
+mysql  localhost:3306 ssl  northwind  SQL > select * from products limit 5;
+
+mysql  localhost:3306 ssl  northwind  SQL > select a.customerid, a.companyname, sum(c.unitprice * c.quantity * (1 - c.discount)) as totalcomprado
+    -> from customers a
+    -> join orders b on a.customerid = b.customerid
+    -> join orderdetails c on b.orderid = c.orderid
+    -> group by a.customerid
+    -> order by totalcomprado desc
+    -> limit 1;
++------------+-------------+---------------+
+| customerid | companyname | totalcomprado |
++------------+-------------+---------------+
+| QUICK      | QUICK-Stop  |     117483.39 |
++------------+-------------+---------------+
+
+mysql  localhost:3306 ssl  northwind  SQL > select a.customerid, a.companyname,
+    -> sum(c.unitprice * c.quantity * (1 - c.discount)) as totalcomprado 
+    -> from customers a 
+    -> join orders b on a.customerid = b.customerid 
+    -> join orderdetails c on b.orderid = c.orderid 
+    -> group by a.customerid 
+    -> order by totalcomprado asc 
+    -> limt 1;
+ERROR: 1064 (42000): You have an error in your SQL syntax...
+mysql  localhost:3306 ssl  northwind  SQL > ... 
+    -> limit 1;
+
++------------+----------------------------+---------------+
+| CENTC      | Centro comercial Moctezuma |         100.8 |
++------------+----------------------------+---------------+
+
+mysql  localhost:3306 ssl  northwind  SQL > select a.productid, a.productname, sum(b.quantity) as totalvendido 
+    -> from products a 
+    -> join orderdetails b on a.productid = b.productid 
+    -> group by a.productid 
+    -> order by totalvendido desc 
+    -> limit 1;
+
++-----------+-------------------+--------------+
+| 60        | Camembert Pierrot |         1577 |
++-----------+-------------------+--------------+
+
+mysql  localhost:3306 ssl  northwind  SQL > select a.productid, a.productname,
+    -> sum(b.unitprice * b.quantity * (1 - b.discount)) as ganancia 
+    -> from products a 
+    -> join orderdetails b on a.productid = b.productid 
+    -> group by a.productid 
+    -> order by ganancia descc 
+    -> limit 1;
+ERROR: 1064 (42000): You have an error in your SQL syntax...
+mysql  localhost:3306 ssl  northwind  SQL > order by ganancia desc
+    -> limit 1;
+
++-----------+--------------+----------+
+| 38        | Cte de Blaye | 149984.2 |
++-----------+--------------+----------+
+
+mysql  localhost:3306 ssl  northwind  SQL > select a.productid, a.productname, 
+    -> sum(b.unitprice * b.quantity * (1- b.discount)) as ganancia 
+    -> from products a 
+    -> join orderdetails b on a.productid = b.productid 
+    -> group by a.productid 
+    -> order by ganancia asc 
+    -> limit 1;
+
++-----------+-------------+----------+
+| 48        | Chocolade   |  1542.75 |
++-----------+-------------+----------+
+
+mysql  localhost:3306 ssl  northwind  SQL > select d.productid, d.productname, sum(e.quantity) as cantidad 
+    -> from customers a 
+    -> join orders b on a.customerid = b.customerid 
+    -> join orderdetails e on b.orderid = e.orderid 
+    -> join products d on e.productid = d.productid 
+    -> where a.customerid = (
+    ->     select a.customerid 
+    ->     from customers a 
+    ->     join orders b on a.customerid = b.customerid 
+    ->     join orderdetails c on b.orderid = c.orderid 
+    ->     group by a.customerid 
+    ->     order by sum(c.unitprice * c.quantity * (1 - c.discount)) desc 
+    ->     limit 1
+    -> ) 
+    -> group by d.productid 
+    -> order by cantidad desc 
+    -> limit 1;
+
++-----------+-------------------+----------+
+| 60        | Camembert Pierrot |      243 |
++-----------+-------------------+----------+
+
+mysql  localhost:3306 ssl  northwind  SQL > select a.employeeid, a.firstname, a.lastname, 
+    -> sum(c.unitprice * c.quantity * (1 - c.discount)) as totalventas 
+    -> from employees a 
+    -> join orders b on a.employeeid = b.employeeid 
+    -> join orderdetails c on b.orderid = c.orderid 
+    -> group by a.employeeid 
+    -> order by totalventas asc 
+    -> limit 1;
+
++------------+-----------+----------+-------------+
+| 5          | Steven    | Buchanan |    75567.75 |
++------------+-----------+----------+-------------+
+
+mysql  localhost:3306 ssl  northwind  SQL > select a.supplierid, a.companyname 
+    -> from suppliers a 
+    -> join products b on a.supplierid = b.supplierid 
+    -> where b.unitsinstock = 0 and b.unitsonorder = 0;
+
++------------+---------------------------------+
+| 2          | New Orleans Cajun Delights      |
+| 7          | Pavlova, Ltd.                   |
+| 12         | Plutzer Lebensmittelgromrkte AG |
+| 24         | G'day, Mate                     |
++------------+---------------------------------+
+
+mysql  localhost:3306 ssl  northwind  SQL > select a.supplierid, a.companyname, 
+    -> sum(c.unitprice * c.quantity * (1 - c.discount)) as totalcomprado 
+    -> from suppliers a 
+    -> join products b on a.supplierid = b.supplierid 
+    -> join orderdetails c on b.productid = c.productid 
+    -> group by a.supplierid 
+    -> order by totalcomprado desc 
+    -> limti 1;
+ERROR: 1064 (42000): You have an error in your SQL syntax...
+mysql  localhost:3306 ssl  northwind  SQL > limit 1;
+
++------------+---------------------------+---------------+
+| 18         | Aux joyeux ecclsiastiques |        163135 |
++------------+---------------------------+---------------+
