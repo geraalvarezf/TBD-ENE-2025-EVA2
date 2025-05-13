@@ -1,4 +1,4 @@
-aLast login: Tue Mar  4 16:13:32 on ttys005
+Last login: Tue Mar  4 16:13:32 on ttys005
 mysqlsh
 /Users/Gerardo/.zshrc:export:1: not valid in this context: export HOMEBREW_PREFIX
 Gerardo@luiss-mac ~ % mysqlsh
